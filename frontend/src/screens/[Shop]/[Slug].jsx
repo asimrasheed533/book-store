@@ -7,7 +7,6 @@ export default function Detail() {
   console.log(state);
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
-  const [quantity, setQuantity] = useState(1);
   if (!state) {
     return <div>No product details available</div>;
   }

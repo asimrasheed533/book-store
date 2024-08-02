@@ -4,7 +4,7 @@ export default function TimelineCard() {
       <div className="order__details__main__customer__card__header">
         Timeline
       </div>
-      <div className="order__details__main__customer__card__content__timeline__upper__wraper">
+      <div className="order__details__main__customer__card__content__timeline__upper__warper">
         <div className="order__details__main__customer__card__content__timeline__heading__container">
           <div className="order__details__main__customer__card__content__timeline__upper__heading">
             1 SEPTEMBER
@@ -17,7 +17,7 @@ export default function TimelineCard() {
           5:06pm
         </div>
       </div>
-      <div className="order__details__main__customer__card__content__timeline__upper__wraper">
+      <div className="order__details__main__customer__card__content__timeline__upper__warper">
         <div className="order__details__main__customer__card__content__timeline__heading__container">
           <div className="order__details__main__customer__card__content__timeline__upper__heading">
             18 AUGUST

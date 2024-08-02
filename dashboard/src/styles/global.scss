@@ -68,7 +68,6 @@ body {
   width: fit-content;
   margin: 0 auto;
   position: relative;
-
 }
 
 .image__add__svg {
@@ -145,77 +144,77 @@ body {
 
 @import "https://unpkg.com/open-props/easings.min.css";
 
-.sun-and-moon> :is(.moon, .sun, .sun-beams) {
+.sun-and-moon > :is(.moon, .sun, .sun-beams) {
   transform-origin: center center;
 }
 
-.sun-and-moon> :is(.moon, .sun) {
+.sun-and-moon > :is(.moon, .sun) {
   fill: var(--icon-fill);
 }
 
-.theme-toggle:is(:hover, :focus-visible)>.sun-and-moon> :is(.moon, .sun) {
+.theme-toggle:is(:hover, :focus-visible) > .sun-and-moon > :is(.moon, .sun) {
   fill: var(--icon-fill-hover);
 }
 
-.sun-and-moon>.sun-beams {
+.sun-and-moon > .sun-beams {
   stroke: var(--icon-fill);
-  stroke-width: 2px;
+  strokewidth: 2px;
 }
 
-.theme-toggle:is(:hover, :focus-visible) .sun-and-moon>.sun-beams {
+.theme-toggle:is(:hover, :focus-visible) .sun-and-moon > .sun-beams {
   stroke: var(--icon-fill-hover);
 }
 
-[data-theme="dark"] .sun-and-moon>.sun {
+[data-theme="dark"] .sun-and-moon > .sun {
   transform: scale(1.75);
 }
 
-[data-theme="dark"] .sun-and-moon>.sun-beams {
+[data-theme="dark"] .sun-and-moon > .sun-beams {
   opacity: 0;
 }
 
-[data-theme="dark"] .sun-and-moon>.moon>circle {
+[data-theme="dark"] .sun-and-moon > .moon > circle {
   transform: translate(-7px);
 }
 
 @supports (cx: 1) {
-  [data-theme="dark"] .sun-and-moon>.moon>circle {
+  [data-theme="dark"] .sun-and-moon > .moon > circle {
     transform: translate(0);
     cx: 17;
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .sun-and-moon>.sun {
+  .sun-and-moon > .sun {
     transition: transform 0.5s var(--ease-elastic-3);
   }
 
-  .sun-and-moon>.sun-beams {
+  .sun-and-moon > .sun-beams {
     transition: transform 0.5s var(--ease-elastic-4), opacity 0.5s var(--ease-3);
   }
 
-  .sun-and-moon .moon>circle {
+  .sun-and-moon .moon > circle {
     transition: transform 0.25s var(--ease-out-5);
   }
 
   @supports (cx: 1) {
-    .sun-and-moon .moon>circle {
+    .sun-and-moon .moon > circle {
       transition: cx 0.25s var(--ease-out-5);
     }
   }
 
-  [data-theme="dark"] .sun-and-moon>.sun {
+  [data-theme="dark"] .sun-and-moon > .sun {
     transform: scale(1.75);
     transition-timing-function: var(--ease-3);
     transition-duration: 0.25s;
   }
 
-  [data-theme="dark"] .sun-and-moon>.sun-beams {
+  [data-theme="dark"] .sun-and-moon > .sun-beams {
     transform: rotate(-25deg);
     transition-duration: 0.15s;
   }
 
-  [data-theme="dark"] .sun-and-moon>.moon>circle {
+  [data-theme="dark"] .sun-and-moon > .moon > circle {
     transition-delay: 0.25s;
     transition-duration: 0.5s;
   }
@@ -238,10 +237,10 @@ body {
   outline-offset: 5px;
 }
 
-.theme-toggle>svg {
+.theme-toggle > svg {
   inline-size: 100%;
   block-size: 100%;
-  stroke-linecap: round;
+  strokelinecap: round;
 }
 
 [data-theme="dark"] .theme-toggle {
@@ -290,7 +289,8 @@ body {
   height: 15px;
 }
 
-.container__main__content__details__main__row__profile__row__image__button input {
+.container__main__content__details__main__row__profile__row__image__button
+  input {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -315,39 +315,39 @@ body {
   }
 }
 
-.container__main__content__details__main__wraper {
+.container__main__content__details__main__warper {
   width: 100%;
   border-bottom: 1px solid black;
 }
 
-.container__main__content__details__main__wraper__heading {
+.container__main__content__details__main__warper__heading {
   padding-bottom: 2em;
   font-size: 14px;
 }
 
-.container__main__content__details__main__wraper__main__box {
+.container__main__content__details__main__warper__main__box {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   text-align: center;
 }
 
-.container__main__content__details__main__wraper__box__title {
+.container__main__content__details__main__warper__box__title {
   font-size: 18px;
   font-weight: 700;
 }
 
-.container__main__content__details__main__wraper__box__value {
+.container__main__content__details__main__warper__box__value {
   font-size: 18px;
 }
 
-.container__main__content__details__main__wraper__box {
+.container__main__content__details__main__warper__box {
   width: 30%;
   padding: 3em;
   margin-right: 2em;
 }
 
-.container__main__content__details__last__order__wraper {
+.container__main__content__details__last__order__warper {
   width: 100%;
   margin: 2em 0em;
 }
@@ -357,7 +357,7 @@ body {
   font-weight: 700;
 }
 
-.container__main__content__details__last__order__id__wraper {
+.container__main__content__details__last__order__id__warper {
   display: flex;
   margin: 12px 0px;
 }
@@ -375,7 +375,7 @@ body {
   color: var(--colorReverse);
 }
 
-.container__main__content__details__last__orders__img__wraper {
+.container__main__content__details__last__orders__img__warper {
   width: 100%;
   display: flex;
   margin: 12px 0px;
@@ -531,7 +531,8 @@ body {
   color: red;
 }
 
-.container__main__content__details__main__input__field__wrapper__image__delete svg {
+.container__main__content__details__main__input__field__wrapper__image__delete
+  svg {
   width: 15px;
   height: 15px;
 }
@@ -549,14 +550,14 @@ body {
 }
 
 @media (max-width: 1200px) {
-  .container__main__content__details__main__wraper__box {
+  .container__main__content__details__main__warper__box {
     width: 50%;
     margin: 0;
   }
 }
 
 @media (max-width: 550px) {
-  .container__main__content__details__main__wraper__box {
+  .container__main__content__details__main__warper__box {
     width: 100%;
   }
 

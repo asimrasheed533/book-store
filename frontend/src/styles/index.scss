@@ -190,7 +190,7 @@ body {
   border-radius: inherit;
   margin-top: 3em;
 }
-.shop__card__wraper {
+.shop__card__warper {
   display: flex;
   color: black;
   flex-wrap: wrap;
@@ -201,7 +201,7 @@ body {
   border-radius: 6px;
 }
 
-.popular__card__wraper {
+.popular__card__warper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -224,7 +224,7 @@ body {
   transition: 300ms ease-in-out;
 }
 
-.popular__card__wraper:hover .popular__text__content {
+.popular__card__warper:hover .popular__text__content {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   transition: 300ms ease-in-out;
   cursor: pointer;
@@ -262,14 +262,14 @@ body {
   font-size: 0.8rem;
 }
 
-.popular__card__wraper:hover .popular__card__img__overlay__cart__btn {
+.popular__card__warper:hover .popular__card__img__overlay__cart__btn {
   display: block;
   transition: 300ms ease-in-out;
   transform: translateY(100%);
   opacity: 0.8;
 }
 
-.shop__card__wraper:hover .popular__card__img__overlay__cart__btn {
+.shop__card__warper:hover .popular__card__img__overlay__cart__btn {
   display: block;
   transition: 300ms ease-in-out;
   opacity: 0.8;
@@ -413,7 +413,7 @@ body {
   color: rgb(255, 255, 255);
 }
 
-.cart__sidebar__wraper {
+.cart__sidebar__warper {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -446,7 +446,7 @@ body {
   }
 }
 
-.cart__sidebar__wraper__header {
+.cart__sidebar__warper__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -531,7 +531,7 @@ body {
   transition: 300ms ease-in-out;
 }
 
-.cart__sidebar__price__wraper {
+.cart__sidebar__price__warper {
   width: 100%;
   display: flex;
   align-items: center;
@@ -600,7 +600,7 @@ body {
   margin-top: 2em;
 }
 
-.promo__card__wraper {
+.promo__card__warper {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -648,7 +648,7 @@ body {
   text-align: center;
 }
 
-.promo__card2__wraper {
+.promo__card2__warper {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -818,12 +818,12 @@ body {
     gap: 1em;
   }
 
-  .promo__card2__wraper {
+  .promo__card2__warper {
     padding: 2em;
     width: 100%;
   }
 
-  .promo__card__wraper {
+  .promo__card__warper {
     width: 100%;
   }
 }
@@ -846,12 +846,12 @@ body {
     width: 200px;
   }
 
-  .promo__card__wraper {
+  .promo__card__warper {
     flex-direction: column;
     padding: 1em;
   }
 
-  .popular__card__wraper {
+  .popular__card__warper {
     flex: 0 1 145px;
   }
 

@@ -19,7 +19,7 @@ export default function Index() {
       </div>
       {/* //promo cards */}
       <div className="promo__card__container">
-        <div className="promo__card__wraper">
+        <div className="promo__card__warper">
           <div className="promo__card__content">
             <div className="promo__card__content__title">
               Books Make Great Gifts
@@ -32,7 +32,7 @@ export default function Index() {
             <img src={PngPromoimg} alt="promo" />
           </div>
         </div>
-        <div className="promo__card2__wraper">
+        <div className="promo__card2__warper">
           <div className="promo__card__content__discount">
             <div className="promo__card__content__title__discount">
               Discount up to
@@ -90,7 +90,7 @@ export default function Index() {
       {/* //new arival */}
       <div className="arival__container">
         <div className="popular__container__heading">New Arrivals</div>
-        <div className="item__container__wraper">
+        <div className="item__container__warper">
           <ProductCard image={JpgBok01} />
           <ProductCard image={JpgBok02} />
           <ProductCard image={JpgBok04} />
@@ -110,7 +110,7 @@ function ProductCard({ image }) {
   return (
     <div className="item__container">
       <div className="item__container__img">
-        <img src={image} alt="fashion_style" />
+        <img src={image} alt="book_store" />
       </div>
       <div className="item__container__name">Popular novels in English</div>
       <div className="item__container__author">
@@ -122,7 +122,7 @@ function ProductCard({ image }) {
 
 function PopularProducts({ product }) {
   return (
-    <div className="popular__card__wraper">
+    <div className="popular__card__warper">
       <div className="popular__card__img">
         <img src={product.img} alt="books" />
       </div>

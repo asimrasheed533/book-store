@@ -30,7 +30,7 @@ export default function Header() {
           <img src={PngBooklogo} alt="book logo" />
         </Link>
         {isOpen ? (
-          <div className="header__nav__wraper">
+          <div className="header__nav__warper">
             <NavLink
               to="/"
               className="header__nav__link"
@@ -154,8 +154,8 @@ export default function Header() {
                 </svg>
               </div>
               {isCartOpen ? (
-                <div className="cart__sidebar__wraper">
-                  <div className="cart__sidebar__wraper__header">
+                <div className="cart__sidebar__warper">
+                  <div className="cart__sidebar__warper__header">
                     <div className="cart__sidebar__heading">SHOPPING CART</div>
                     <div
                       onClick={() => setIsCartOpen(!isCartOpen)}
@@ -178,7 +178,7 @@ export default function Header() {
                     </div>
                     <div className="cart__products__remove">X</div>
                   </div>
-                  <div className="cart__sidebar__price__wraper">
+                  <div className="cart__sidebar__price__warper">
                     <div className="cart__sidebar__price__head">
                       <div className="cart__sidebar__title">Subtotal:</div>
                       <div className="cart__sidebar__price">$399</div>

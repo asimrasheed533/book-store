@@ -56,7 +56,7 @@ function CartItem({ cart }) {
           <img src={cart.img} alt="cart" />
         </div>
         <div className="cart__container__left__col__content">
-          <div className="cart__container__left__name__wraper">
+          <div className="cart__container__left__name__warper">
             <div className="cart__container__left__col__name">{cart.name}</div>
           </div>
 
@@ -82,9 +82,9 @@ function CartItem({ cart }) {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             class="feather feather-trash-2"
           >
             <polyline points="3 6 5 6 21 6"></polyline>

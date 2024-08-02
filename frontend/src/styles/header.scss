@@ -19,7 +19,7 @@
   box-sizing: border-box;
 }
 
-.header__nav__wraper {
+.header__nav__warper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -127,7 +127,7 @@
   right: 70px;
 }
 
-.header__menu__wraper {
+.header__menu__warper {
   position: absolute;
   display: flex;
   align-items: center;
@@ -186,7 +186,7 @@
     background-color: #e7e7e7;
     color: rgb(0, 0, 0);
   }
-  .header__nav__wraper {
+  .header__nav__warper {
     position: absolute;
     flex-direction: column;
     top: 70px;

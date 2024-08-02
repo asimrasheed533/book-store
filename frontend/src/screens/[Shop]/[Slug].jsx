@@ -15,10 +15,10 @@ export default function Detail() {
       <div className="book__detail__heading">Book Details</div>
       <div className="detial__container">
         <div className="detial__container__col">
-          <div className="detial__container__col__main__img__wraper">
+          <div className="detial__container__col__main__img__warper">
             <img
               className="detial__container__col__main__image"
-              src={state.image}
+              src={state.img}
               alt="product book"
             />
           </div>

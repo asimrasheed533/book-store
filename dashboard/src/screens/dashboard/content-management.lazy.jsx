@@ -63,7 +63,7 @@ export default function ContentManagement() {
             { value: "Deactive", label: "Deactive" },
           ]}
         />
-        <div className="container__main__content__details__main__row__wraper">
+        <div className="container__main__content__details__main__row__warper">
           <div
             style={{
               backgroundColor: "black",

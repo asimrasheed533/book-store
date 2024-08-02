@@ -33,7 +33,7 @@
 .container__main__header__left__button svg {
   width: 18px;
   height: 19px;
-  stroke-width: 1.8px;
+  strokewidth: 1.8px;
 }
 .container__main__header__left__button:hover {
   background-color: var(--primary);
@@ -105,7 +105,7 @@
   margin-right: 0.5em;
   width: 18px;
   height: 18px;
-  stroke-width: 2.5px;
+  strokewidth: 2.5px;
   stroke: var(--color);
 }
 .container__main__header__right__panel__content__entry:hover {

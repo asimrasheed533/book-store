@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 // import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import useQuery from "../../utils/useQuery";
 export default function Shop() {
-  const [isactive, setIsactive] = useState(0);
-  const filterdata = [
+  const { data: products, isLoading: loading } = useQuery("products");
+  const [isActive, setIsActive] = useState(0);
+  console.log("product", products);
+  const filterData = [
     {
       id: 1,
       title: "Lightspeed Robots",
@@ -81,40 +83,40 @@ export default function Shop() {
 
   return (
     <>
-      <div className="shop__products__filter__wraper">
-        <div className="filter__wraper__heading">
+      <div className="shop__products__filter__warper">
+        <div className="filter__warper__heading">
           Buy Books Online With The Best Price!
         </div>
-        <div className="filter__item__entry__wraper">
+        <div className="filter__item__entry__warper">
           <div
             className={`filter__item__entry ${
-              isactive === 0 && "filter__item__entry__active"
+              isActive === 0 && "filter__item__entry__active"
             }`}
-            onClick={() => setIsactive(0)}
+            onClick={() => setIsActive(0)}
           >
             All
           </div>
           <div
             className={`filter__item__entry ${
-              isactive === 1 && "filter__item__entry__active"
+              isActive === 1 && "filter__item__entry__active"
             }`}
-            onClick={() => setIsactive(1)}
+            onClick={() => setIsActive(1)}
           >
             Novel
           </div>
           <div
             className={`filter__item__entry ${
-              isactive === 2 && "filter__item__entry__active"
+              isActive === 2 && "filter__item__entry__active"
             }`}
-            onClick={() => setIsactive(2)}
+            onClick={() => setIsActive(2)}
           >
             Islamic
           </div>
           <div
             className={`filter__item__entry ${
-              isactive === 3 && "filter__item__entry__active"
+              isActive === 3 && "filter__item__entry__active"
             }`}
-            onClick={() => setIsactive(3)}
+            onClick={() => setIsActive(3)}
           >
             History
           </div>
@@ -122,8 +124,8 @@ export default function Shop() {
       </div>
       <div className="shop__products__container">
         <div className="shop__products__items">
-          {filterdata?.map((item) => (
-            <ProductCard item={item} key={item.id} />
+          {products?.map((product) => (
+            <ProductCard product={product} key={product.id} />
           ))}
         </div>
       </div>
@@ -131,25 +133,25 @@ export default function Shop() {
   );
 }
 
-function ProductCard({ item }) {
+function ProductCard({ product }) {
   return (
     <Link
       onClick={() => {
         window.scrollTo(0, 0);
       }}
-      to={`${item.id}`}
-      state={item}
-      className="shop__card__wraper"
+      to={`${product.id}`}
+      state={product}
+      className="shop__card__warper"
     >
       <div className="popular__card__img__overlay">
         <div className="popular__card__img">
-          <img src={item.image} alt="fashion_style" />
+          <img src={product.img} alt="fashion_style" />
         </div>
       </div>
       <div className="popular__text__content">
-        <div className="popular__card__name">{item.title}</div>
+        <div className="popular__card__name">{product.name}</div>
         <div className="item__container__author">
-          <span>Author:</span> {item.author}
+          <span>Author:</span> {product.author}
         </div>
       </div>
     </Link>

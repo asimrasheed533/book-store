@@ -1,43 +1,77 @@
 import { Input, Select, Textarea } from "components";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import ImageUploaderSingle from "../../../components/ImageUploaderSingle";
 import axios from "../../../utils/axios";
 import { useBackLocation } from "global";
-import { useState } from "react";
-import { categories } from "../../../utils/constants";
+import { categories, getCategoryName } from "../../../utils/constants";
 
-export default function ProductAdd() {
-  const [selectedImage, setSelectedImage] = useState();
+export default function ProductEdit() {
+  const { state } = useLocation();
   const navigate = useNavigate();
   const backLocation = useBackLocation();
 
   const [name, setName] = useState("");
+
   const [brand, setBrand] = useState("");
+
   const [description, setDescription] = useState("");
 
-  const [stock, setStock] = useState("");
-  const [price, setPrice] = useState("");
+  const [time, setTime] = useState("");
+
   const [category, setCategory] = useState({});
+  const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
+  const [selectedImage, setSelectedImage] = useState();
+
+  const [stock, setStock] = useState("");
+
+  useEffect(() => {
+    if (state) {
+      setName(state.name);
+      setBrand(state.brand);
+      setDescription(state.description);
+      setTime(state.time);
+      setStock(state.stock);
+      setPrice(state.price);
+      setCategory({
+        label: getCategoryName(state.category),
+        value: state.category,
+      });
+      setImage(state.img);
+    }
+  }, [state]);
 
   function handleSubmit(e) {
+    console.log("submitting");
+    console.log("submit data", {
+      name,
+      brand,
+      description,
+      time,
+      category: category.value,
+      img: image,
+      price,
+    });
     axios
-      .post("products/add", {
+      .put("products/" + state._id, {
         name,
         brand,
         description,
-        stock,
+        time,
         category: category.value,
         img: image,
         price,
       })
       .then((res) => {
-        alert("Product added successfully");
+        alert("Product updated successfully");
         navigate(backLocation);
       })
       .catch((err) => {
         console.error(err);
       });
   }
+
   return (
     <div className="product__form">
       <div className="product__form__col">
@@ -64,25 +98,24 @@ export default function ProductAdd() {
           />
         </div>
         <div className="product__form__col__panel">
-          <div className="product__form__col__panel__heading">Pricing</div>
-
           <Input
             type="number"
-            label="Enter Stock"
+            label="Edit Stock"
             value={stock}
             onChange={(e) => setStock(e.target.value)}
-            placeholder="Enter stock"
+            placeholder="Enter Stock"
           />
           <Input
             type="number"
-            label="Enter Price"
+            label="Edit Price"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            placeholder="Enter Price"
+            placeholder="Enter price"
           />
         </div>
         <div className="product__form__col__panel">
-          <div className="product__form__col__panel__heading">Image</div>
+          <div className="product__form__col__panel__heading">Media</div>
+
           <div className="popup__wrapper__card__header__img">
             <img src={image} alt="Upload Icon" />
             <label
@@ -141,7 +174,7 @@ export default function ProductAdd() {
             onClick={handleSubmit}
             className="container__main__content__details__buttons__button container__main__content__details__buttons__primary"
           >
-            Add New Product
+            Save Changes
           </button>
           <Link
             to={backLocation}

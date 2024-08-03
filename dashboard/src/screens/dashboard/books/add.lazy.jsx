@@ -1,77 +1,43 @@
 import { Input, Select, Textarea } from "components";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import ImageUploaderSingle from "../../../components/ImageUploaderSingle";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "../../../utils/axios";
 import { useBackLocation } from "global";
-import { categories, getCategoryName } from "../../../utils/constants";
+import { useState } from "react";
+import { categories } from "../../../utils/constants";
 
-export default function ProductEdit() {
-  const { state } = useLocation();
+export default function ProductAdd() {
+  const [selectedImage, setSelectedImage] = useState();
   const navigate = useNavigate();
   const backLocation = useBackLocation();
 
   const [name, setName] = useState("");
-
   const [brand, setBrand] = useState("");
-
   const [description, setDescription] = useState("");
 
-  const [time, setTime] = useState("");
-
-  const [category, setCategory] = useState({});
-  const [price, setPrice] = useState("");
-  const [image, setImage] = useState("");
-  const [selectedImage, setSelectedImage] = useState();
-
   const [stock, setStock] = useState("");
-
-  useEffect(() => {
-    if (state) {
-      setName(state.name);
-      setBrand(state.brand);
-      setDescription(state.description);
-      setTime(state.time);
-      setStock(state.stock);
-      setPrice(state.price);
-      setCategory({
-        label: getCategoryName(state.category),
-        value: state.category,
-      });
-      setImage(state.img);
-    }
-  }, [state]);
+  const [price, setPrice] = useState("");
+  const [category, setCategory] = useState({});
+  const [image, setImage] = useState("");
 
   function handleSubmit(e) {
-    console.log("submitting");
-    console.log("subit data", {
-      name,
-      brand,
-      description,
-      time,
-      category: category.value,
-      img: image,
-      price,
-    });
     axios
-      .put("products/" + state._id, {
+      .post("products/add", {
         name,
         brand,
         description,
-        time,
+        stock,
         category: category.value,
         img: image,
         price,
       })
       .then((res) => {
-        alert("Product updated successfully");
+        alert("Product added successfully");
         navigate(backLocation);
       })
       .catch((err) => {
         console.error(err);
       });
   }
-
   return (
     <div className="product__form">
       <div className="product__form__col">
@@ -85,8 +51,8 @@ export default function ProductEdit() {
           />
           <Input
             type="text"
-            label="Brand"
-            placeholder="Enter Brand"
+            label="Title"
+            placeholder="Enter Title"
             value={brand}
             onChange={(e) => setBrand(e.target.value)}
           />
@@ -98,34 +64,35 @@ export default function ProductEdit() {
           />
         </div>
         <div className="product__form__col__panel">
+          <div className="product__form__col__panel__heading">Pricing</div>
+
           <Input
             type="number"
-            label="Edit Stock"
+            label="Enter Stock"
             value={stock}
             onChange={(e) => setStock(e.target.value)}
-            placeholder="Enter Stock"
+            placeholder="Enter stock"
           />
           <Input
             type="number"
-            label="Edit Price"
+            label="Enter Price"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            placeholder="Enter price"
+            placeholder="Enter Price"
           />
         </div>
         <div className="product__form__col__panel">
-          <div className="product__form__col__panel__heading">Media</div>
-
+          <div className="product__form__col__panel__heading">Image</div>
           <div className="popup__wrapper__card__header__img">
             <img src={image} alt="Upload Icon" />
             <label
               className="popup__wrapper__card__header__svg"
-              htmlFor="image-ipload"
+              htmlFor="image-upload"
             >
               <input
                 type="file"
                 accept="image/*"
-                id="image-ipload"
+                id="image-upload"
                 onChange={(e) => {
                   const file = e.target.files[0];
 
@@ -174,7 +141,7 @@ export default function ProductEdit() {
             onClick={handleSubmit}
             className="container__main__content__details__buttons__button container__main__content__details__buttons__primary"
           >
-            Save Changes
+            Add New Product
           </button>
           <Link
             to={backLocation}

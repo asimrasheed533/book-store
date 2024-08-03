@@ -15,7 +15,7 @@ import { useLocation } from "react-router-dom";
 import { getCategoryName } from "../../../utils/constants";
 import useQuery from "../../../utils/useQuery";
 
-export default function Products() {
+export default function Books() {
   const location = useLocation();
 
   const { data: products, isLoading: loading, mutate } = useQuery("products");
@@ -61,15 +61,14 @@ export default function Products() {
             Image
           </div>
           <div className="container__main__content__listing__table__header__entry">
-            Name
+            Title
           </div>
           <div className="container__main__content__listing__table__header__entry">
             Price
           </div>
           <div className="container__main__content__listing__table__header__entry">
-            Brand
+            Author
           </div>
-
           <div className="container__main__content__listing__table__header__entry">
             Stock
           </div>
@@ -104,7 +103,7 @@ function TableEntry({ product, getData }) {
         <TableEntryEditButton state={{ ...product }} />
         <TableEntryDeleteButton
           onClick={() => {
-            axios.delete(`products/${product._id}`).then(() => {
+            axios.delete(`books/${product._id}`).then(() => {
               getData();
             });
           }}
@@ -127,7 +126,7 @@ function TableEntry({ product, getData }) {
         ]}
         onChange={(e) => {
           axios
-            .put(`products/${product._id}`, {
+            .put(`books/${product._id}`, {
               isActive: e.value,
             })
             .then(() => {

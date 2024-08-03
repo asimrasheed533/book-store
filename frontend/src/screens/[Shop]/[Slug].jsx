@@ -13,20 +13,20 @@ export default function Detail() {
   return (
     <>
       <div className="book__detail__heading">Book Details</div>
-      <div className="detial__container">
-        <div className="detial__container__col">
-          <div className="detial__container__col__main__img__warper">
+      <div className="detail__container">
+        <div className="detail__container__col">
+          <div className="detail__container__col__main__img__warper">
             <img
-              className="detial__container__col__main__image"
+              className="detail__container__col__main__image"
               src={state.img}
               alt="product book"
             />
           </div>
         </div>
 
-        <div className="detial__container__col">
-          <div className="detial__container__name">{state.title}</div>
-          <div className="detial__price__entry">
+        <div className="detail__container__col">
+          <div className="detail__container__name">{state.title}</div>
+          <div className="detail__price__entry">
             <span>Author:</span> Demo Jhon
           </div>
 

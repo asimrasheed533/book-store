@@ -87,8 +87,8 @@ export default function Index() {
         </div>
       </div>
 
-      {/* //new arival */}
-      <div className="arival__container">
+      {/* //new arrival */}
+      <div className="arrival__container">
         <div className="popular__container__heading">New Arrivals</div>
         <div className="item__container__warper">
           <ProductCard image={JpgBok01} />

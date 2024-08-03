@@ -1,4 +1,4 @@
-.arival__container {
+.arrival__container {
   width: 100%;
   display: flex;
   align-items: center;
@@ -9,7 +9,7 @@
   flex-direction: column;
 }
 
-.arival__heading {
+.arrival__heading {
   font-size: 30px;
   font-weight: 700;
 }
@@ -228,7 +228,7 @@
   object-fit: cover;
 }
 
-.detial__container {
+.detail__container {
   width: 100%;
   display: flex;
   align-items: flex-start;
@@ -239,7 +239,7 @@
   padding: 2em;
 }
 
-.detial__container__col {
+.detail__container__col {
   flex: 1;
   display: flex;
   align-items: flex-start;
@@ -247,7 +247,7 @@
   flex-direction: column;
 }
 
-.deatail__imgs__warper {
+.detail__img__warper {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -255,12 +255,12 @@
   flex-wrap: wrap;
 }
 
-.deatail__imgs__entry {
+.detail__img__entry {
   width: 90px;
   height: 90px;
 }
 
-.deatail__imgs__entry img {
+.detail__img__entry img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -304,30 +304,32 @@
   padding-top: 3em;
 }
 
-.detial__container__col__main__img__warper {
-  width: 100%;
+.detail__container__col__main__img__warper {
   height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1em;
+  background-color: #f8f8f8;
+  border-radius: 12px;
 }
 
-.detial__container__col__main__image {
+.detail__container__col__main__image {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
-.detial__container__name {
+.detail__container__name {
   font-size: 18px;
   font-weight: 700;
 }
-.detial__price__entry span {
+.detail__price__entry span {
   font-size: 12px;
   color: #777474;
   font-weight: lighter;
 }
-.detial__price__entry {
+.detail__price__entry {
   width: 100%;
   margin: 1em 0;
   display: flex;
@@ -336,11 +338,11 @@
   gap: 2em;
 }
 
-.detial__price {
+.detail__price {
   font-weight: 700;
 }
 
-.detial__price__free {
+.detail__price__free {
   color: #eb4a4a;
   font-size: 12px;
 }
@@ -493,16 +495,16 @@
 }
 
 @media (max-width: 800px) {
-  // .detial__container__name {
+  // .detail__container__name {
   //   width: 100%;
   //   align-items: flex-start;
   // }
-  .detial__container__col {
+  .detail__container__col {
     width: 100%;
     align-items: flex-start;
   }
 
-  .deatail__imgs__warper {
+  .detail__img__warper {
     gap: 0.7em;
     width: 100%;
     display: flex;
@@ -524,7 +526,7 @@
     flex-wrap: wrap;
   }
 
-  .detial__container {
+  .detail__container {
     flex-direction: column;
   }
 }
@@ -551,7 +553,7 @@
     font-size: 12px;
   }
 
-  .deatail__imgs__entry {
+  .detail__img__entry {
     width: 60px;
     height: 60px;
   }

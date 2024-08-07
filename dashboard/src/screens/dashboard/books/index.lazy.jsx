@@ -25,9 +25,9 @@ export default function Books() {
   const filter = useCallback((products) => {
     return products.filter((product) => {
       return (
-        product.name.toLowerCase().includes(query.toLowerCase()) ||
+        product.title.toLowerCase().includes(query.toLowerCase()) ||
         product.price.toString().includes(query) ||
-        product.brand.toLowerCase().includes(query.toLowerCase()) ||
+        product.author.toLowerCase().includes(query.toLowerCase()) ||
         product.category.toLowerCase().includes(query.toLowerCase())
       );
     });
@@ -61,14 +61,15 @@ export default function Books() {
             Image
           </div>
           <div className="container__main__content__listing__table__header__entry">
+            Title
+          </div>
+          <div className="container__main__content__listing__table__header__entry">
             Author
           </div>
           <div className="container__main__content__listing__table__header__entry">
             Price
           </div>
-          <div className="container__main__content__listing__table__header__entry">
-            Author
-          </div>
+
           <div className="container__main__content__listing__table__header__entry">
             Stock
           </div>
@@ -166,13 +167,13 @@ function TableEntry({ product, getData }) {
 
       <TableEntryImage src={product?.img} />
       <TableEntryText className="container__main__content__listing__table__content__list__entry">
-        {product.name}
+        {product.title}
+      </TableEntryText>
+      <TableEntryText className="container__main__content__listing__table__content__list__entry">
+        {product.author}
       </TableEntryText>
       <TableEntryText className="container__main__content__listing__table__content__list__entry">
         {product.price}
-      </TableEntryText>
-      <TableEntryText className="container__main__content__listing__table__content__list__entry">
-        {product.brand}
       </TableEntryText>
 
       <TableEntryText className="container__main__content__listing__table__content__list__entry">

@@ -25,9 +25,8 @@ router.get("/:id", async (req, res) => {
 router.post("/add", async (req, res) => {
   try {
     const product = new Product({
-      name: req.body.name,
-      brand: req.body.brand,
-      time: req.body.time,
+      title: req.body.title,
+      author: req.body.author,
       img: req.body.img,
       stock: req.body.stock,
       category: req.body.category,
@@ -47,10 +46,9 @@ router.post("/add", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   try {
-    const updateproduct = await Product.findByIdAndUpdate(req.params.id, {
-      name: req.body.name,
-      brand: req.body.brand,
-      time: req.body.time,
+    const updateProduct = await Product.findByIdAndUpdate(req.params.id, {
+      title: req.body.title,
+      author: req.body.author,
       img: req.body.img,
       stock: req.body.stock,
       category: req.body.category,
@@ -61,7 +59,7 @@ router.put("/:id", async (req, res) => {
       type: req.body.type,
     });
 
-    return res.json(updateproduct);
+    return res.json(updateProduct);
   } catch (err) {
     console.log(err);
     return res.status(500).json({ error: "Something went wrong" });

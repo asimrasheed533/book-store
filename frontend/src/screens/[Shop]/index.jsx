@@ -149,7 +149,7 @@ function ProductCard({ product }) {
         </div>
       </div>
       <div className="popular__text__content">
-        <div className="popular__card__name">{product.name}</div>
+        <div className="popular__card__name">{product.title}</div>
         <div className="item__container__author">
           <span>Author:</span> {product.author}
         </div>

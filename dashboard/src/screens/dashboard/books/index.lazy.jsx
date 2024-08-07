@@ -61,7 +61,7 @@ export default function Books() {
             Image
           </div>
           <div className="container__main__content__listing__table__header__entry">
-            Title
+            Author
           </div>
           <div className="container__main__content__listing__table__header__entry">
             Price

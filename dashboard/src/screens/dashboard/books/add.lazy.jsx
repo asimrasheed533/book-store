@@ -51,8 +51,8 @@ export default function ProductAdd() {
           />
           <Input
             type="text"
-            label="Title"
-            placeholder="Enter Title"
+            label="Author"
+            placeholder="Enter Author Name"
             value={brand}
             onChange={(e) => setBrand(e.target.value)}
           />

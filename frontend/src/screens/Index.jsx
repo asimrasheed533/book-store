@@ -91,30 +91,33 @@ export default function Index() {
       <div className="arrival__container">
         <div className="popular__container__heading">New Arrivals</div>
         <div className="item__container__warper">
-          <ProductCard image={JpgBok01} />
-          <ProductCard image={JpgBok02} />
-          <ProductCard image={JpgBok04} />
-          <ProductCard image={JpgBok02} />
-          <ProductCard image={JpgBok01} />
-          <ProductCard image={JpgBok02} />
-          <ProductCard image={JpgBok01} />
-          <ProductCard image={JpgBok01} />
-          <ProductCard image={JpgBok02} />
+          {products ? (
+            products
+              .filter((product) => product.type === "featured")
+              ?.map((product) => (
+                <ProductCard key={product._id} product={product} />
+              ))
+          ) : (
+            <div className="placeholder">
+              No Arrival products available at the moment.
+            </div>
+          )}
         </div>
       </div>
     </>
   );
 }
 
-function ProductCard({ image }) {
+function ProductCard({ product }) {
   return (
     <div className="item__container">
       <div className="item__container__img">
-        <img src={image} alt="book_store" />
+        <img src={product.img} alt="book_store" />
       </div>
-      <div className="item__container__name">Popular novels in English</div>
+      <div className="item__container__name">{product.title}</div>
       <div className="item__container__author">
-        <span>Author:</span> Demo jhon
+        <span>Author:</span>
+        {product.author}
       </div>
     </div>
   );
@@ -129,9 +132,9 @@ function PopularProducts({ product }) {
 
       <div className="popular__text__content">
         <div className="popular__card__name">{product.title}</div>
-        {/* <div className="item__container__author">
+        <div className="item__container__author">
           <span>Author:</span> {product.author}
-        </div> */}
+        </div>
       </div>
     </div>
   );

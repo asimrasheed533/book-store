@@ -27,7 +27,7 @@ export default function Detail() {
         <div className="detail__container__col">
           <div className="detail__container__name">{state.title}</div>
           <div className="detail__price__entry">
-            <span>Author:</span> Demo Jhon
+            <span>Author:</span> {state.author}
           </div>
 
           <button
@@ -42,8 +42,9 @@ export default function Detail() {
               dispatch(
                 addToCart({
                   id: state.id,
-                  img: state.image,
-                  name: state.title,
+                  img: state.img,
+                  name: state.name,
+                  author: state.author,
                 })
               );
             }}

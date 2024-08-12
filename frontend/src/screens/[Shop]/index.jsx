@@ -1,85 +1,9 @@
 import React, { useState } from "react";
-// import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import useQuery from "../../utils/useQuery";
 export default function Shop() {
   const { data: products, isLoading: loading } = useQuery("products");
   const [isActive, setIsActive] = useState(0);
-  console.log("product", products);
-  const filterData = [
-    {
-      id: 1,
-      title: "Lightspeed Robots",
-      author: "Demo jhon",
-      description:
-        "The latest Apple iPhone with A15 Bionic chip, 5G capability, and improved camera features.",
-      image:
-        "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJvb2t8ZW58MHx8MHx8fDA%3D",
-    },
-    {
-      id: 2,
-      title: "Lightspeed Robots",
-      author: "Demo jhon",
-      description:
-        "Samsung's flagship phone with a powerful Exynos 2100 chip, 120Hz display, and versatile camera.",
-      image:
-        "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJvb2t8ZW58MHx8MHx8fDA%3D",
-    },
-    {
-      id: 3,
-      title: "Lightspeed Robots",
-      author: "Demo jhon",
-      description:
-        "Google's latest phone featuring the custom Tensor chip, excellent AI features, and pure Android experience.",
-      image:
-        "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJvb2t8ZW58MHx8MHx8fDA%3D",
-    },
-    {
-      id: 4,
-      title: "Lightspeed Robots",
-      author: "Demo jhon",
-      description:
-        "OnePlus's premium phone with Snapdragon 888, fast charging, and a smooth 120Hz display.",
-      image:
-        "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJvb2t8ZW58MHx8MHx8fDA%3D",
-    },
-    {
-      id: 5,
-      title: "Lightspeed Robots",
-      author: "Demo jhon",
-      description:
-        "Sony's high-end phone with a 21:9 CinemaWide display, triple camera setup, and great audio features.",
-      image:
-        "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJvb2t8ZW58MHx8MHx8fDA%3D",
-    },
-    {
-      id: 6,
-      title: "Lightspeed Robots",
-      author: "Demo jhon",
-      description:
-        "Xiaomi's flagship with Snapdragon 888, AMOLED display, and impressive fast charging capabilities.",
-      image:
-        "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJvb2t8ZW58MHx8MHx8fDA%3D",
-    },
-    {
-      id: 7,
-      title: "Lightspeed Robots",
-      author: "Demo jhon",
-      description:
-        "Huawei's high-end phone with Kirin 990, Leica camera system, and excellent battery life.",
-      image:
-        "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJvb2t8ZW58MHx8MHx8fDA%3D",
-    },
-    {
-      id: 8,
-      title: "Lightspeed Robots",
-      author: "Demo jhon",
-      description:
-        "Nokia's 5G phone with a large display, pure Android experience, and solid build quality.",
-      image:
-        "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJvb2t8ZW58MHx8MHx8fDA%3D",
-    },
-  ];
 
   return (
     <>

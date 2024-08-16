@@ -1,88 +1,80 @@
-import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import axios from "../utils/axios";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart } from "../features/cartSlice";
+
 export default function Checkout() {
-  const [country, setCountry] = useState("");
-  const [countryError, setCountryError] = useState("");
   const [firstName, setFirstName] = useState("");
   const [firstNameError, setFirstNameError] = useState("");
   const [lastName, setLastName] = useState("");
   const [lastNameError, setLastNameError] = useState("");
-  const [companyName, setCompanyName] = useState("");
-  const [companyNameError, setCompanyNameError] = useState("");
-  const [streetAddress, setStreetAddress] = useState("");
-  const [streetAddressError, setStreetAddressError] = useState("");
   const [cityTown, setCityTown] = useState("");
   const [cityTownError, setCityTownError] = useState("");
-  const [zipCode, setZipCode] = useState("");
-  const [zipCodeError, setZipCodeError] = useState("");
   const [number, setNumber] = useState("");
   const [numberError, setNumberError] = useState("");
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [popupVisible, setPopupVisible] = useState(false);
+  const cart = useSelector((state) => state.cart.items);
 
-  function handelCheckOut(e) {
+  const dispatch = useDispatch();
+  const handlePlaceOrder = (e) => {
     e.preventDefault();
-    if (!country) {
-      setCountryError(" Select Country");
-    }
+    let valid = true;
+
+    setFirstNameError("");
+    setLastNameError("");
+    setCityTownError("");
+    setNumberError("");
+    setEmailError("");
+
     if (!firstName) {
-      setFirstNameError(" Enter First Name");
+      setFirstNameError("Enter First Name");
+      valid = false;
     }
     if (!lastName) {
-      setLastNameError(" Enter Last Name");
-    }
-    if (!companyName) {
-      setCompanyNameError(" Enter Company Name");
-    }
-    if (!streetAddress) {
-      setStreetAddressError(" Enter Street Address");
+      setLastNameError("Enter Last Name");
+      valid = false;
     }
     if (!cityTown) {
-      setCityTownError(" Enter City Town");
-    }
-    if (!zipCode) {
-      setZipCodeError(" Enter Zip Code");
+      setCityTownError("Enter City Town");
+      valid = false;
     }
     if (!number) {
-      setNumberError(" Enter Number");
+      setNumberError("Enter Number");
+      valid = false;
     }
     if (!email) {
-      setEmailError(" Enter Email");
+      setEmailError("Enter Email");
+      valid = false;
     }
-    if (
-      country &&
-      firstName &&
-      lastName &&
-      companyName &&
-      streetAddress &&
-      cityTown &&
-      zipCode &&
-      number &&
-      email &&
-      email.includes("@") &&
-      email.includes(".")
-    ) {
-      setCountryError("");
-      setFirstName("");
-      setLastNameError("");
-      setCompanyNameError("");
-      setStreetAddressError("");
-      setCityTownError("");
-      setZipCodeError("");
-      setNumberError("");
-      setEmailError("");
-      setCountry("");
-      setFirstName("");
-      setLastName("");
-      setCompanyName("");
-      setStreetAddress("");
-      setCityTown("");
-      setZipCode("");
-      setNumber("");
-      setEmail("");
-    }
-  }
+
+    if (!valid) return;
+
+    axios
+      .post("/orders", {
+        firstName,
+        lastName,
+        cityTown,
+        number,
+        email,
+        products: cart,
+      })
+      .then((res) => {
+        console.log(res.data);
+        dispatch(clearCart());
+
+        setFirstName("");
+        setLastName("");
+        setCityTown("");
+        setNumber("");
+        setEmail("");
+
+        setPopupVisible(true);
+        alert("added");
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -91,27 +83,7 @@ export default function Checkout() {
         <div className="checkout__content__main">
           <div className="checkout__content__warper__from">
             <div className="checkout__from__heading">Shipping Address</div>
-            <div className="checkout__input__warper">
-              <div className="checkout__input__label">Country</div>
-              <input
-                className="checkout__input__entry"
-                type="text"
-                placeholder="Select Country"
-                value={country}
-                error={countryError}
-                onChange={(e) => {
-                  if (!e.target.value) {
-                    setCountryError("Please Select Country");
-                  } else {
-                    setCountryError("");
-                  }
-                  setCountry(e.target.value);
-                }}
-              />
-              {countryError !== "" ? (
-                <div className="checkout__input__error">{countryError}</div>
-              ) : null}
-            </div>
+
             <div className="checkout__input__warper__name">
               <div className="checkout__input__warper__name__entry">
                 <div className="checkout__input__label">First Name</div>
@@ -120,19 +92,18 @@ export default function Checkout() {
                   type="text"
                   placeholder="Enter Name"
                   value={firstName}
-                  error={firstNameError}
                   onChange={(e) => {
+                    setFirstName(e.target.value);
                     if (!e.target.value) {
                       setFirstNameError("Enter First Name");
                     } else {
                       setFirstNameError("");
                     }
-                    setFirstName(e.target.value);
                   }}
                 />
-                {firstNameError !== "" ? (
+                {firstNameError && (
                   <div className="checkout__input__error">{firstNameError}</div>
-                ) : null}
+                )}
               </div>
               <div className="checkout__input__warper__name__entry">
                 <div className="checkout__input__label">Last Name</div>
@@ -141,64 +112,19 @@ export default function Checkout() {
                   type="text"
                   placeholder="Enter Name"
                   value={lastName}
-                  error={lastNameError}
                   onChange={(e) => {
+                    setLastName(e.target.value);
                     if (!e.target.value) {
-                      setLastNameError(" Enter Last Name");
+                      setLastNameError("Enter Last Name");
                     } else {
                       setLastNameError("");
                     }
-                    setLastName(e.target.value);
                   }}
                 />
-                {lastNameError !== "" ? (
+                {lastNameError && (
                   <div className="checkout__input__error">{lastNameError}</div>
-                ) : null}
+                )}
               </div>
-            </div>
-            <div className="checkout__input__warper">
-              <div className="checkout__input__label">Company Name </div>
-              <input
-                className="checkout__input__entry"
-                type="text"
-                placeholder="Enter Name"
-                value={companyName}
-                error={companyNameError}
-                onChange={(e) => {
-                  if (!e.target.value) {
-                    setCompanyNameError(" Enter Company Name");
-                  } else {
-                    setCompanyNameError("");
-                  }
-                  setCompanyName(e.target.value);
-                }}
-              />
-              {companyNameError !== "" ? (
-                <div className="checkout__input__error">{companyNameError}</div>
-              ) : null}
-            </div>
-            <div className="checkout__input__warper">
-              <div className="checkout__input__label">Street Address</div>
-              <input
-                className="checkout__input__entry"
-                type="text"
-                placeholder="Enter Address"
-                value={streetAddress}
-                error={streetAddressError}
-                onChange={(e) => {
-                  if (!e.target.value) {
-                    setStreetAddressError(" Enter Street Address");
-                  } else {
-                    setStreetAddressError("");
-                  }
-                  setStreetAddress(e.target.value);
-                }}
-              />
-              {streetAddressError !== "" ? (
-                <div className="checkout__input__error">
-                  {streetAddressError}
-                </div>
-              ) : null}
             </div>
             <div className="checkout__input__warper">
               <div className="checkout__input__label">City Town</div>
@@ -207,41 +133,20 @@ export default function Checkout() {
                 type="text"
                 placeholder="Enter Address"
                 value={cityTown}
-                error={cityTownError}
                 onChange={(e) => {
+                  setCityTown(e.target.value);
                   if (!e.target.value) {
-                    setCityTownError(" Enter City Town");
+                    setCityTownError("Enter City Town");
                   } else {
                     setCityTownError("");
                   }
-                  setCityTown(e.target.value);
                 }}
               />
-              {cityTownError !== "" ? (
+              {cityTownError && (
                 <div className="checkout__input__error">{cityTownError}</div>
-              ) : null}
+              )}
             </div>
-            <div className="checkout__input__warper">
-              <div className="checkout__input__label">Zip code</div>
-              <input
-                className="checkout__input__entry"
-                type="number"
-                placeholder="Enter Code"
-                value={zipCode}
-                error={zipCodeError}
-                onChange={(e) => {
-                  if (!e.target.value) {
-                    setZipCodeError(" Enter Zip Code");
-                  } else {
-                    setZipCodeError("");
-                  }
-                  setZipCode(e.target.value);
-                }}
-              />
-              {zipCodeError !== "" ? (
-                <div className="checkout__input__error">{zipCodeError}</div>
-              ) : null}
-            </div>
+
             <div className="checkout__input__warper">
               <div className="checkout__input__label">Number</div>
               <input
@@ -249,19 +154,18 @@ export default function Checkout() {
                 type="text"
                 placeholder="Enter Number"
                 value={number}
-                error={numberError}
                 onChange={(e) => {
+                  setNumber(e.target.value);
                   if (!e.target.value) {
-                    setNumberError(" Enter Number");
+                    setNumberError("Enter Number");
                   } else {
                     setNumberError("");
                   }
-                  setNumber(e.target.value);
                 }}
               />
-              {numberError !== "" ? (
+              {numberError && (
                 <div className="checkout__input__error">{numberError}</div>
-              ) : null}
+              )}
             </div>
             <div className="checkout__input__warper">
               <div className="checkout__input__label">Email</div>
@@ -270,28 +174,43 @@ export default function Checkout() {
                 type="email"
                 placeholder="Enter Email"
                 value={email}
-                error={emailError}
                 onChange={(e) => {
+                  setEmail(e.target.value);
                   if (!e.target.value) {
-                    setEmailError(" Enter Email");
+                    setEmailError("Enter Email");
                   } else {
                     setEmailError("");
                   }
-                  setEmail(e.target.value);
                 }}
               />
-              {emailError !== "" ? (
+              {emailError && (
                 <div className="checkout__input__error">{emailError}</div>
-              ) : null}
+              )}
             </div>
           </div>
         </div>
       </div>
       <div className="checkout__btn__warper">
-        <button className="checkout__btn" onClick={handelCheckOut}>
+        <button className="checkout__btn" onClick={handlePlaceOrder}>
           Place Order
         </button>
       </div>
+      {popupVisible && (
+        <div className="successful__popup">
+          <div className="popup__content">
+            <div className="popup__content___title">
+              Order has been placed successfully!
+            </div>
+
+            <button
+              className="successful__popup__button"
+              onClick={() => setPopupVisible(false)}
+            >
+              x
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }

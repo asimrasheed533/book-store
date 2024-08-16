@@ -205,11 +205,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   padding: 1.5em 0;
   flex: 0 1 190px;
   border-radius: 12px;
   cursor: pointer;
   box-shadow: rgba(141, 141, 141, 0.075) 1.95px 1.95px 2.6px;
+  text-decoration: none;
+  color: black;
 }
 
 .popular__text__content {

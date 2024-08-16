@@ -32,7 +32,7 @@ export default function Detail() {
 
           <button
             onClick={() => {
-              if (cart.find((item) => item.id === state._id)) {
+              if (cartItems.find((item) => item.id === state._id)) {
                 alert("book is already reserve");
               } else {
                 dispatch(

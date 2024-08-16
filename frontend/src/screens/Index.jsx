@@ -1,10 +1,8 @@
 import banner from "../assets/banner.jpg";
-import { JpgBok01 } from "@assets";
-import { JpgBok02 } from "@assets";
-import { JpgBok04 } from "@assets";
 import { PngPromoimg } from "@assets";
 import { PngLibrarybook } from "@assets";
 import useQuery from "../utils/useQuery";
+import { Link } from "react-router-dom";
 export default function Index() {
   const { data: products, isLoading: loading } = useQuery("products");
   console.log("product", products);
@@ -125,7 +123,14 @@ function ProductCard({ product }) {
 
 function PopularProducts({ product }) {
   return (
-    <div className="popular__card__warper">
+    <Link
+      onClick={() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }}
+      to={`/shop/${product._id}`}
+      state={product}
+      className="popular__card__warper"
+    >
       <div className="popular__card__img">
         <img src={product.img} alt="books" />
       </div>
@@ -136,6 +141,6 @@ function PopularProducts({ product }) {
           <span>Author:</span> {product.author}
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

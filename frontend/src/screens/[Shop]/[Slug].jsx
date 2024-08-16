@@ -32,21 +32,19 @@ export default function Detail() {
 
           <button
             onClick={() => {
-              const productExist = cartItems.some(
-                (item) => item.id === state.id
-              );
-              if (productExist) {
-                alert("Product already added to cart");
-                return;
+              if (cart.find((item) => item.id === state._id)) {
+                alert("book is already reserve");
+              } else {
+                dispatch(
+                  addToCart({
+                    id: state._id,
+                    img: state.img,
+                    name: state.name,
+                    author: state.author,
+                  })
+                );
+                alert("Book is added");
               }
-              dispatch(
-                addToCart({
-                  id: state.id,
-                  img: state.img,
-                  name: state.name,
-                  author: state.author,
-                })
-              );
             }}
             className="add__cart__btn"
           >

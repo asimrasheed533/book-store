@@ -38,7 +38,15 @@ export default function Cart() {
               <Link to="/" className="sub__total__btn">
                 Add More Books
               </Link>
-              <Link className="sub__total__btn__checkout">reserve</Link>
+              <Link
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                to="/checkout"
+                className="sub__total__btn__checkout"
+              >
+                reserve
+              </Link>
             </div>
           </div>
         </>

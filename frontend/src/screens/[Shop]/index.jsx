@@ -4,7 +4,19 @@ import useQuery from "../../utils/useQuery";
 export default function Shop() {
   const { data: products, isLoading: loading } = useQuery("products");
   const [isActive, setIsActive] = useState(0);
-
+  console.log("products", products);
+  const categoryFilter = {
+    0: null, // All categories
+    1: "66b1f929c289c556e5bce5d0", // Novel
+    2: "66bc5d2114e916d656f99ac1", // Islamic
+    3: "66bc8172976df3e5257d76e8", // History
+  };
+  const filteredProducts = products?.filter((product) => {
+    if (categoryFilter[isActive]) {
+      return product.category === categoryFilter[isActive];
+    }
+    return true; // If "All" is selected, show all products
+  });
   return (
     <>
       <div className="shop__products__filter__warper">
@@ -48,7 +60,7 @@ export default function Shop() {
       </div>
       <div className="shop__products__container">
         <div className="shop__products__items">
-          {products?.map((product) => (
+          {filteredProducts?.map((product) => (
             <ProductCard product={product} key={product.id} />
           ))}
         </div>

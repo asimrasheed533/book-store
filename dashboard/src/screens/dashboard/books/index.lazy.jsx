@@ -15,7 +15,7 @@ import { useLocation } from "react-router-dom";
 import { getCategoryName } from "../../../utils/constants";
 import useQuery from "../../../utils/useQuery";
 
-export default function Products() {
+export default function Books() {
   const location = useLocation();
 
   const { data: products, isLoading: loading, mutate } = useQuery("products");
@@ -23,11 +23,11 @@ export default function Products() {
   const [query, setQuery] = useState("");
 
   const filter = useCallback((products) => {
-    return products?.filter((product) => {
+    return products.filter((product) => {
       return (
-        product.name.toLowerCase().includes(query.toLowerCase()) ||
+        product.title.toLowerCase().includes(query.toLowerCase()) ||
         product.price.toString().includes(query) ||
-        product.brand.toLowerCase().includes(query.toLowerCase()) ||
+        product.author.toLowerCase().includes(query.toLowerCase()) ||
         product.category.toLowerCase().includes(query.toLowerCase())
       );
     });
@@ -62,6 +62,9 @@ export default function Products() {
           </div>
           <div className="container__main__content__listing__table__header__entry">
             Title
+          </div>
+          <div className="container__main__content__listing__table__header__entry">
+            Author
           </div>
           <div className="container__main__content__listing__table__header__entry">
             Price
@@ -124,7 +127,7 @@ function TableEntry({ product, getData }) {
         ]}
         onChange={(e) => {
           axios
-            .put(`products/${product._id}`, {
+            .put(`books/${product._id}`, {
               isActive: e.value,
             })
             .then(() => {
@@ -164,7 +167,10 @@ function TableEntry({ product, getData }) {
 
       <TableEntryImage src={product?.img} />
       <TableEntryText className="container__main__content__listing__table__content__list__entry">
-        {product.name}
+        {product.title}
+      </TableEntryText>
+      <TableEntryText className="container__main__content__listing__table__content__list__entry">
+        {product.author}
       </TableEntryText>
       <TableEntryText className="container__main__content__listing__table__content__list__entry">
         {product.price}

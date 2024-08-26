@@ -1,4 +1,4 @@
-
+import { product } from "../assets";
 
 export default function OrderProductsCardRow() {
   return (

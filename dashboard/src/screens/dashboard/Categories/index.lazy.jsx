@@ -15,6 +15,7 @@ import Loading from "../../../layouts/loading";
 export default function categories() {
   const location = useLocation();
   const { data: category, isLoading: loading, mutate } = useQuery("categories");
+
   return (
     <div className="container__main__content__listing">
       <div className="container__main__content__listing__header">

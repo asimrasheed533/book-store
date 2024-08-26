@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "../../../utils/axios";
 import { useBackLocation } from "global";
 import { useState } from "react";
-import upimg from "../../../assets/upimg.png";
 
 export default function CategorieAdd() {
   const [selectedImage, setSelectedImage] = useState();
@@ -38,7 +37,7 @@ export default function CategorieAdd() {
         />
         <div className="product__form__col__panel__heading">Image</div>
         <div className="popup__wrapper__card__header__img">
-          <img src={image || upimg} alt="" />
+          <img src={image} alt="upload img" />
 
           <label className="popup__wrapper__card__header__svg">
             <input

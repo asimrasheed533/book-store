@@ -1,5 +1,6 @@
 import { LoginInput } from "components";
 import axios from "../utils/axios";
+import { logo } from "assets";
 import { useAtom } from "jotai";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";

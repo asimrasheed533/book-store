@@ -14,16 +14,16 @@ html[data-theme="dark"] {
   --backgroundDarkColor: #242424;
   --color: #f1f1f1;
   --colorLight: #afafaf;
-  --colorReverse: #690f4b;
+  --colorReverse: #00a827;
   --colorLightReverse: #333333;
   --transparentColor: rgba(26, 26, 26, 0.9);
   --boxShadow: rgba(0, 0, 0, 0.459);
 }
 
 :root {
-  --primary: #d82e53;
-  --primaryDark: #d43c62;
-  --secondary: #141413;
+  --primary: #00a827;
+  --primaryDark: #23963e;
+  --secondary: #20c068;
   --secondaryDark: #dbd6d3;
 }
 
@@ -83,9 +83,8 @@ body {
   display: flex;
   width: 130px;
   height: 130px;
-  padding: 1em;
   border-radius: 100px;
-  object-fit: contain;
+  object-fit: cover;
   margin: 0 auto 1em;
   background-color: #ededed;
 }
@@ -107,7 +106,6 @@ body {
 
 .popup__wrapper__card__header__svg:hover {
   background-color: #393a9d;
-  color: white;
 }
 
 .popup__wrapper__card__header__svg input {

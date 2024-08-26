@@ -5,19 +5,10 @@ import {
   TableEntryText,
   TableEntryViewButton,
 } from "components";
-import useQuery from "../../../utils/useQuery";
-import Loading from "../../../layouts/loading";
+
 import { Search } from "react-feather";
-import axios from "../../../utils/axios";
+
 export default function orders() {
-  const {
-    data: response = {},
-    isLoading: loading,
-    mutate,
-  } = useQuery("orders");
-
-  const order = response.data || [];
-
   return (
     <div className="container__main__content__listing">
       <div className="container__main__content__listing__header">
@@ -46,7 +37,7 @@ export default function orders() {
             Order ID
           </div>
           <div className="container__main__content__listing__table__header__entry">
-            Email
+            Order Date
           </div>
           <div className="container__main__content__listing__table__header__entry">
             Customer name
@@ -54,44 +45,74 @@ export default function orders() {
           <div className="container__main__content__listing__table__header__entry">
             Phone No.
           </div>
+          <div className="container__main__content__listing__table__header__entry">
+            Items
+          </div>
+          <div className="container__main__content__listing__table__header__entry">
+            Status
+          </div>
+          <div className="container__main__content__listing__table__header__entry">
+            Payment
+          </div>
         </div>
         <div className="container__main__content__listing__table__content">
-          {loading ? (
-            <Loading dashboard />
-          ) : (
-            order.map((item) => (
-              <TableEntry item={item} key={item._id} getData={mutate} />
-            ))
-          )}
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
+          <TableEntry />
         </div>
       </div>
     </div>
   );
 }
 
-function TableEntry({ item }) {
+function TableEntry() {
   return (
     <div className="container__main__content__listing__table__content__list">
       <div className="container__main__content__listing__table__content__list__entry">
-        {/* <TableEntryViewButton /> */}
-        <TableEntryDeleteButton
-          onClick={() => {
-            axios.delete(`orders/${item?._id}`).then(() => {
-              getData();
-            });
-          }}
-        />
+        <TableEntryViewButton />
+        <TableEntryDeleteButton />
       </div>
       <TableEntryImage
         className="container__main__content__listing__table__content__list__entry"
         style={{ gap: 10, flexWrap: "wrap" }}
       >
         <Avatar className="container__main__content__listing__table__content__list__entry__img" />
+        <Avatar className="container__main__content__listing__table__content__list__entry__img" />
+        <Avatar className="container__main__content__listing__table__content__list__entry__img" />
       </TableEntryImage>
-      <TableEntryText>{item._id}</TableEntryText>
-      <TableEntryText>{item?.email}</TableEntryText>
-      <TableEntryText>{item?.firstName}</TableEntryText>
-      <TableEntryText>{item?.number}</TableEntryText>
+      <TableEntryText>123456789</TableEntryText>
+      <TableEntryText>11/12/22</TableEntryText>
+      <TableEntryText>qasim</TableEntryText>
+      <TableEntryText>+123234560</TableEntryText>
+      <TableEntryText>6</TableEntryText>
+      <TableEntryText>Delivery Made</TableEntryText>
+      <TableEntryText>Payment Pending</TableEntryText>
     </div>
   );
 }

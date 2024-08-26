@@ -32,12 +32,18 @@ export default function AboutUs() {
         heading="Seed of knowledge"
         text=" Seed of knowledge is a poetic way to refer to the beginning or origin of learning and understanding Just like a seed contains the potential to grow into a full-fledged plant the seed of knowledge represents the initial piece of information or insight that can develop into a more comprehensive understanding. It's the small, often simple idea or fact that can spark curiosity and lead to deeper exploration and growth. What’s your context or interest in the “seed of knowledge"
       />
-      <AboutCard
-        
-      />
-      <div class="video__container">
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/SKVcQnyEIT8?si=OUxPa6wXROaz8hGZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="video__container">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/SKVcQnyEIT8?si=OUxPa6wXROaz8hGZ"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
       </div>
     </>
   );

@@ -76,6 +76,21 @@ export default function Header() {
             >
               About Us
             </NavLink>
+            <NavLink
+              to="/ContactUs"
+              className="header__nav__link"
+              onClick={() => {
+                if (window.innerWidth <= 800) {
+                  setisOpen(false);
+                }
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
+              }}
+            >
+              Contact us
+            </NavLink>
           </div>
         ) : null}
         <Link

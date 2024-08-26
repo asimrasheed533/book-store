@@ -5,10 +5,19 @@ import {
   TableEntryText,
   TableEntryViewButton,
 } from "components";
-
+import useQuery from "../../../utils/useQuery";
+import Loading from "../../../layouts/loading";
 import { Search } from "react-feather";
-
+import axios from "../../../utils/axios";
 export default function orders() {
+  const {
+    data: response = {},
+    isLoading: loading,
+    mutate,
+  } = useQuery("orders");
+
+  const order = response.data || [];
+
   return (
     <div className="container__main__content__listing">
       <div className="container__main__content__listing__header">
@@ -30,89 +39,52 @@ export default function orders() {
           <div className="container__main__content__listing__table__header__entry">
             Actions
           </div>
+
           <div className="container__main__content__listing__table__header__entry">
-            images
+            Book ID
           </div>
           <div className="container__main__content__listing__table__header__entry">
-            Order ID
+            Email
           </div>
           <div className="container__main__content__listing__table__header__entry">
-            Order Date
-          </div>
-          <div className="container__main__content__listing__table__header__entry">
-            Customer name
+            Student name
           </div>
           <div className="container__main__content__listing__table__header__entry">
             Phone No.
           </div>
-          <div className="container__main__content__listing__table__header__entry">
-            Items
-          </div>
-          <div className="container__main__content__listing__table__header__entry">
-            Status
-          </div>
-          <div className="container__main__content__listing__table__header__entry">
-            Payment
-          </div>
         </div>
         <div className="container__main__content__listing__table__content">
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
+          {loading ? (
+            <Loading dashboard />
+          ) : (
+            order.map((item) => (
+              <TableEntry item={item} key={item._id} getData={mutate} />
+            ))
+          )}
         </div>
       </div>
     </div>
   );
 }
 
-function TableEntry() {
+function TableEntry({ item }) {
   return (
     <div className="container__main__content__listing__table__content__list">
       <div className="container__main__content__listing__table__content__list__entry">
-        <TableEntryViewButton />
-        <TableEntryDeleteButton />
+        {/* <TableEntryViewButton /> */}
+        <TableEntryDeleteButton
+          onClick={() => {
+            axios.delete(`orders/${item?._id}`).then(() => {
+              getData();
+            });
+          }}
+        />
       </div>
-      <TableEntryImage
-        className="container__main__content__listing__table__content__list__entry"
-        style={{ gap: 10, flexWrap: "wrap" }}
-      >
-        <Avatar className="container__main__content__listing__table__content__list__entry__img" />
-        <Avatar className="container__main__content__listing__table__content__list__entry__img" />
-        <Avatar className="container__main__content__listing__table__content__list__entry__img" />
-      </TableEntryImage>
-      <TableEntryText>123456789</TableEntryText>
-      <TableEntryText>11/12/22</TableEntryText>
-      <TableEntryText>qasim</TableEntryText>
-      <TableEntryText>+123234560</TableEntryText>
-      <TableEntryText>6</TableEntryText>
-      <TableEntryText>Delivery Made</TableEntryText>
-      <TableEntryText>Payment Pending</TableEntryText>
+
+      <TableEntryText>{item._id}</TableEntryText>
+      <TableEntryText>{item?.email}</TableEntryText>
+      <TableEntryText>{item?.firstName}</TableEntryText>
+      <TableEntryText>{item?.number}</TableEntryText>
     </div>
   );
 }

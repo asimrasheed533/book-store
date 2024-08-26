@@ -3,7 +3,7 @@ import { Search, X } from "react-feather";
 import CheckBox from "../../../components/CheckBox";
 import { Link } from "../../../router";
 import ProductBrowsePopup from "../../../components/ProductBrowsePopup";
-import { product } from "../../../assets";
+
 import { useBackLocation } from "../../../global";
 import { useState } from "react";
 

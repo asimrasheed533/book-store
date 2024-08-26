@@ -8,8 +8,9 @@ export default function Shop() {
   const categoryFilter = {
     0: null, // All categories
     1: "66b1f929c289c556e5bce5d0", // Novel
-    2: "66bc5d2114e916d656f99ac1", // Islamic
-    3: "66bc8172976df3e5257d76e8", // History
+    2: "66b1f945c289c556e5bce5d3", // Islamic
+    3: "66b480fc4dccbfb7705266bb", // History
+    4: "66bc5d2114e916d656f99ac1", // computer
   };
   const filteredProducts = products?.filter((product) => {
     if (categoryFilter[isActive]) {
@@ -55,6 +56,14 @@ export default function Shop() {
             onClick={() => setIsActive(3)}
           >
             History
+          </div>
+          <div
+            className={`filter__item__entry ${
+              isActive === 4 && "filter__item__entry__active"
+            }`}
+            onClick={() => setIsActive(4)}
+          >
+            Computer
           </div>
         </div>
       </div>

@@ -16,21 +16,29 @@ export default function AboutUs() {
         style={{ flexDirection: "row-reverse" }}
         image="https://bookly-theme.myshopify.com/cdn/shop/files/abo-01.jpg?v=1622806819&width=1500"
         heading="Give Life to Reading"
-        text="Viverra justo nec ultrices dui. Sit amet volutpat consequat mauris nunc congue nisi vitae. Lorem ipsum dolor sit amet. Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh. Diam maecenas ultricies mi eget.
-Integer quis auctor elit sed vulputate mi sit amet mauris. Quam lacus suspendisse faucibus interdum posuere lorem. Nibh tellus molestie nunc non blandit massa enim nec dui. Suspendisse in est ante in nibh mauris.."
+        text="Books are more than just words on a page;
+        they are portals to diffrent worlds,perpectives.
+        reading gives life to our imagination,thoughts,and emotions.
+        when we read,we embark on ajourney through the minds of authors,
+        exploring new worlds,
+        meeting intriguing characters,and experiebcing a range
+        of emotions.it allows us to escape reality,broden our perspectives,
+        and gain knowledge.
+        through reading,we can learn,grow,and develop empathy by understanding different viewpoints.
+        "
       />
       <AboutCard
         image="https://bookly-theme.myshopify.com/cdn/shop/files/abo-02.jpg?v=1622806835&width=1500"
         heading="Seed of knowledge"
-        text="Feugiat nibh sed pulvinar proin gravida hendrerit lectus. Accumsan tortor posuere ac ut consequat semper viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada. Accumsan sit amet. Porem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque nec nam aliquam sem et. Cras sed felis eget velit aliquet lacus faucibus non est."
+        text=" Seed of knowledge is a poetic way to refer to the beginning or origin of learning and understanding Just like a seed contains the potential to grow into a full-fledged plant the seed of knowledge represents the initial piece of information or insight that can develop into a more comprehensive understanding. It's the small, often simple idea or fact that can spark curiosity and lead to deeper exploration and growth. What’s your context or interest in the “seed of knowledge"
       />
       <AboutCard
-        style={{ flexDirection: "row-reverse" }}
-        image="https://bookly-theme.myshopify.com/cdn/shop/files/abo-03.jpg?v=1622806851&width=1500"
-        heading="Best for Bookworms"
-        text="Sed id semper risus in hendrerit gravida rutrum quisque. Malesuada nunc vel risus commodo viverra maecenas. At lectus urna duis convallis. Bibendum neque egestas congue quisque egestas diam. Volutpat commodo.
-Cursus vitae congue mauris rhoncus aenean. Laoreet non curabitur gravida arcu ac tortor. Luctus venenatis lectus magna fringilla urna porttitor rhoncus dolor. Imperdiet proin fermentum leo vel orci porta non pulvinar."
+        
       />
+      <div class="video__container">
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/SKVcQnyEIT8?si=OUxPa6wXROaz8hGZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
     </>
   );
 }

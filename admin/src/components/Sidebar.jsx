@@ -1,9 +1,8 @@
 import { Link, NavLink } from "router";
 import { sidebarcategories, sidebarEnteries } from "global";
-
+// import { mobilelogo } from "../assets/mobilelogo.png";
 import { Fragment } from "react";
 import { X } from "react-feather";
-import { logo } from "assets";
 import { useState } from "react";
 
 export default function Sidebar({ setSidebarOpen }) {
@@ -11,11 +10,7 @@ export default function Sidebar({ setSidebarOpen }) {
     <div className="container__sidebar">
       <div className="container__sidebar__header">
         <Link to="/dashboard" className="container__sidebar__logo">
-          <img
-            src={logo}
-            alt="logo"
-            className="container__sidebar__logo__img"
-          />
+          {/* <img src={mobilelogo} alt="logo" /> */}
         </Link>
         <button
           className="container__sidebar__button"

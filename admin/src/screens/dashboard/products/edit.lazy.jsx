@@ -11,9 +11,9 @@ export default function ProductEdit() {
   const navigate = useNavigate();
   const backLocation = useBackLocation();
 
-  const [title, setTitle] = useState("");
+  const [name, setName] = useState("");
 
-  const [author, setAuthor] = useState("");
+  const [brand, setBrand] = useState("");
 
   const [description, setDescription] = useState("");
 
@@ -28,8 +28,8 @@ export default function ProductEdit() {
 
   useEffect(() => {
     if (state) {
-      setTitle(state.title);
-      setAuthor(state.author);
+      setName(state.name);
+      setBrand(state.brand);
       setDescription(state.description);
       setTime(state.time);
       setStock(state.stock);
@@ -45,8 +45,8 @@ export default function ProductEdit() {
   function handleSubmit(e) {
     console.log("submitting");
     console.log("submit data", {
-      title,
-      author,
+      name,
+      brand,
       description,
       time,
       category: category.value,
@@ -55,8 +55,8 @@ export default function ProductEdit() {
     });
     axios
       .put("products/" + state._id, {
-        title,
-        author,
+        name,
+        brand,
         description,
         time,
         category: category.value,
@@ -78,17 +78,17 @@ export default function ProductEdit() {
         <div className="product__form__col__panel">
           <Input
             type="text"
-            label="Title"
-            placeholder="Enter Book Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            label="Name"
+            placeholder="Enter Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <Input
             type="text"
-            label="Author"
-            placeholder="Enter Author"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
+            label="Brand"
+            placeholder="Enter Brand"
+            value={brand}
+            onChange={(e) => setBrand(e.target.value)}
           />
           <Textarea
             label="Description"

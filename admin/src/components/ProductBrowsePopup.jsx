@@ -1,7 +1,6 @@
 import { Search, X } from "react-feather";
 
 import clsx from "clsx";
-import { product } from "../assets";
 import { useState } from "react";
 
 export default function ProductBrowsePopup({ setShow }) {

@@ -10,9 +10,10 @@ export default function ProductAdd() {
   const navigate = useNavigate();
   const backLocation = useBackLocation();
 
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
+  const [name, setName] = useState("");
+  const [brand, setBrand] = useState("");
   const [description, setDescription] = useState("");
+
   const [stock, setStock] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState({});
@@ -21,13 +22,14 @@ export default function ProductAdd() {
   function handleSubmit(e) {
     axios
       .post("products/add", {
-        title,
-        author,
+        name,
+        brand,
         description,
         stock,
         category: category.value,
         img: image,
         price,
+        isActive: true,
       })
       .then((res) => {
         alert("Product added successfully");
@@ -43,17 +45,17 @@ export default function ProductAdd() {
         <div className="product__form__col__panel">
           <Input
             type="text"
-            label="Book Title"
-            placeholder="Enter Book Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            label="Name"
+            placeholder="Enter Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <Input
             type="text"
-            label="Author"
-            placeholder="Enter Author Name"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
+            label="Title"
+            placeholder="Enter Title"
+            value={brand}
+            onChange={(e) => setBrand(e.target.value)}
           />
           <Textarea
             label="Description"

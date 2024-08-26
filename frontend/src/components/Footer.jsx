@@ -17,10 +17,11 @@ export default function Footer() {
             <img src={PngBooklogo} alt="logo" />
           </Link>
           <div className="footer__content__col__info">
-            Fundamental Textile ensures ready-to-wear clothing and uniforms for
-            industrial clothing, healthcare, uniforms and casual fast-fashion
-            products. You just have to book an order and rest will be taken care
-            by our teams.
+            Books are the Major Part of Our socitey!
+            it Build the Future of Our generation.
+            We servive some field's of life with Education
+            Man is a social Animal so books make's us a Real Human!
+            (LAIBRARINE)
           </div>
         </div>
         <div className="footer__content__col">
@@ -66,19 +67,11 @@ export default function Footer() {
         </div>
 
         <div className="footer__content__col">
-          <div className="footer__content__col__heading">Social info</div>
-          <div className="footer__content__col__info">+32 434 54554543</div>
+          <div className="footer__content__col__heading">Social Info</div>
+          <div className="footer__content__col__info">+92 03035232462</div>
           <div className="footer__content__col__info">BooksStore@gmail.com</div>
-          <div className="footer__content__col__info">www.fustion.com</div>
-          <Link
-            to="/"
-            onClick={() => {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-            className="footer__content__col__button"
-          >
-            Contact Us
-          </Link>
+          <div className="footer__content__col__info">www.Libarary.com</div>
+          
         </div>
       </div>
     </div>

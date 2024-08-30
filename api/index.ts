@@ -1,6 +1,10 @@
 import { Hono } from "hono";
+import categories from "./routes/categories";
+import orders from "./routes/orders";
 import prisma from "./lib/prisma";
+import products from "./routes/products";
 import { serve } from "@hono/node-server";
+import users from "./routes/users";
 
 async function main() {
   const app = new Hono();
@@ -8,8 +12,13 @@ async function main() {
   const port = Number(process.env.PORT) || 9000;
 
   app.get("/", (c) => {
-    return c.text("Hello Hono!");
+    return c.text("Hello, welcome!");
   });
+
+  app.route("/api/users", users);
+  app.route("/api/categories", categories);
+  app.route("/api/products", products);
+  app.route("/api/orders", orders);
 
   console.log(`Server is running on port ${port}`);
 

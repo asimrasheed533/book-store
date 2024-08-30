@@ -11,9 +11,7 @@ async function main() {
 
   const port = Number(process.env.PORT) || 9000;
 
-  app.get("/", (c) => {
-    return c.text("Hello, welcome!");
-  });
+  app.get("/", (c) => c.json({ message: "Welcome to the API" }));
 
   app.route("/api/users", users);
   app.route("/api/categories", categories);
@@ -26,9 +24,7 @@ async function main() {
 }
 
 main()
-  .then(async () => {
-    await prisma.$disconnect();
-  })
+  .then(async () => await prisma.$disconnect())
   .catch(async (e) => {
     console.error(e);
     await prisma.$disconnect();

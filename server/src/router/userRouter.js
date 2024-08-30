@@ -1,18 +1,6 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const router = express.Router();
 const User = require("../model/userModel");
-// const generateOTP = () => {
-//   return Math.floor(1000 + Math.random() * 9000);
-// };
-
-// const schema = new mongoose.Schema({
-//   name: String,
-//   email: String,
-//   password: String,
-// });
-
-// const User = mongoose.model("User", schema);
 
 router.get("/", async (req, res) => {
   try {
@@ -64,7 +52,6 @@ router.post("/register", async (req, res) => {
       return res.status(400).json({ error: "All fields are required" });
     }
 
-    // const encryptedPassword = (res.body.password, 10);
     const olduser = await User.findOne({ email: req.body.email });
     if (olduser) {
       return res.status(409).json({ error: "User already exists" });

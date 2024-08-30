@@ -1,14 +1,10 @@
-import {
-  Avatar,
-  TableEntryDeleteButton,
-  TableEntryImage,
-  TableEntryText,
-  TableEntryViewButton,
-} from "components";
-import useQuery from "../../../utils/useQuery";
+import { TableEntryDeleteButton, TableEntryText } from "components";
+
 import Loading from "../../../layouts/loading";
 import { Search } from "react-feather";
 import axios from "../../../utils/axios";
+import useQuery from "../../../utils/useQuery";
+
 export default function orders() {
   const {
     data: response = {},
@@ -71,12 +67,9 @@ function TableEntry({ item }) {
   return (
     <div className="container__main__content__listing__table__content__list">
       <div className="container__main__content__listing__table__content__list__entry">
-        {/* <TableEntryViewButton /> */}
         <TableEntryDeleteButton
           onClick={() => {
-            axios.delete(`orders/${item?._id}`).then(() => {
-              getData();
-            });
+            axios.delete(`orders/${item?._id}`).then(() => getData);
           }}
         />
       </div>

@@ -1,11 +1,12 @@
-import banner from "../assets/banner.jpg";
-import { PngPromoimg } from "@assets";
-import { PngLibrarybook } from "@assets";
-import useQuery from "../utils/useQuery";
 import { Link } from "react-router-dom";
+import { PngLibrarybook } from "@assets";
+import { PngPromoimg } from "@assets";
+import banner from "../assets/banner.jpg";
+import useQuery from "../utils/useQuery";
+
 export default function Index() {
-  const { data: products, isLoading: loading } = useQuery("products");
-  console.log("product", products);
+  const { data: products } = useQuery("products");
+
   return (
     <>
       <div className="library__banner__container">
@@ -15,7 +16,6 @@ export default function Index() {
           alt="banner  book store"
         />
       </div>
-      {/* //promo cards */}
       <div className="promo__card__container">
         <div className="promo__card__warper">
           <div className="promo__card__content">
@@ -44,9 +44,6 @@ export default function Index() {
           </div>
         </div>
       </div>
-      {/* <SliderBanner /> */}
-      {/* // popular products */}
-
       <div className="popular__container">
         <div className="popular__container__heading">Popular Products</div>
         <div className="popular__container__cards">
@@ -63,7 +60,6 @@ export default function Index() {
           )}
         </div>
       </div>
-      {/* /// promo banner */}
       <div className="promo__container__upper">
         <div className="promo__container">
           <div className="promo__container__content">
@@ -75,7 +71,6 @@ export default function Index() {
             </div>
             <div className="promo__container__content__sub__heading">
               Last call for up to <span>32%</span> off!
-              {/* <span>32%</span> Discount On Books Learn Language */}
             </div>
             <div className="promo__container__content__btn">Buy Now</div>
           </div>
@@ -84,8 +79,6 @@ export default function Index() {
           </div>
         </div>
       </div>
-
-      {/* //new arrival */}
       <div className="arrival__container">
         <div className="popular__container__heading">New Arrivals</div>
         <div className="item__container__warper">

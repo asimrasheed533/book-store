@@ -1,23 +1,28 @@
 import React, { useState } from "react";
+
 import { Link } from "react-router-dom";
 import useQuery from "../../utils/useQuery";
+
 export default function Shop() {
-  const { data: products, isLoading: loading } = useQuery("products");
+  const { data: products } = useQuery("products");
+
   const [isActive, setIsActive] = useState(0);
-  console.log("products", products);
+
   const categoryFilter = {
-    0: null, // All categories
-    1: "66b1f929c289c556e5bce5d0", // Novel
-    2: "66b1f945c289c556e5bce5d3", // Islamic
-    3: "66b480fc4dccbfb7705266bb", // History
-    4: "66bc5d2114e916d656f99ac1", // computer
+    0: null,
+    1: "66b1f929c289c556e5bce5d0",
+    2: "66b1f945c289c556e5bce5d3",
+    3: "66b480fc4dccbfb7705266bb",
+    4: "66bc5d2114e916d656f99ac1",
   };
+
   const filteredProducts = products?.filter((product) => {
     if (categoryFilter[isActive]) {
       return product.category === categoryFilter[isActive];
     }
-    return true; // If "All" is selected, show all products
+    return true;
   });
+
   return (
     <>
       <div className="shop__products__filter__warper">

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const productSchema = new mongoose.Schema({
   title: String,
   author: String,
@@ -10,12 +11,10 @@ const productSchema = new mongoose.Schema({
   description: String,
   isFeatured: Boolean,
   isActive: Boolean,
-  type : {
+  type: {
     type: String,
-    enum: ['product', 'featured', 'latest'],
-    default: 'product'
-  
-  }
+    enum: ["product", "featured", "latest"],
+    default: "product",
+  },
 });
 module.exports = mongoose.model("Product", productSchema);
-

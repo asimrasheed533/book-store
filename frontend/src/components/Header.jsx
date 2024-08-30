@@ -1,9 +1,9 @@
+import { Link, NavLink } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import ClickAwayListener from "react-click-away-listener";
-import { NavLink, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+
 import { PngBooklogo } from "@assets";
-// import sid01 from "../assets/sid01.jpg";
+import { useSelector } from "react-redux";
+
 export default function Header() {
   const [isOpen, setisOpen] = useState(false);
   const cart = useSelector((state) => state.cart.items);

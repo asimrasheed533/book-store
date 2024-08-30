@@ -1,10 +1,11 @@
 import { Input, Select, Textarea } from "components";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { categories, getCategoryName } from "../../../utils/constants";
 import { useEffect, useState } from "react";
+
 import ImageUploaderSingle from "../../../components/ImageUploaderSingle";
 import axios from "../../../utils/axios";
 import { useBackLocation } from "global";
-import { categories, getCategoryName } from "../../../utils/constants";
 
 export default function ProductEdit() {
   const { state } = useLocation();
@@ -133,7 +134,6 @@ export default function ProductEdit() {
                     return;
                   }
 
-                  // max file size 1mb
                   if (file.size > 1024 * 1024) {
                     alert("File size should be less than 1mb");
                     return;

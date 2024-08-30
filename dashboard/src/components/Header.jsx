@@ -2,11 +2,12 @@ import { ArrowLeft, ChevronDown, LogOut, Menu, User } from "react-feather";
 import { Fragment, useEffect, useState } from "react";
 import { sidebarEnteries, userAtom } from "global";
 import { useLocation, useNavigate } from "react-router-dom";
+
+import Avatar from "./Avatar";
 import ClickAwayListener from "react-click-away-listener";
 import { Link } from "router";
-import { useAtom } from "jotai";
-import Avatar from "./Avatar";
 import ThemeSwitch from "./ThemeSwitch";
+import { useAtom } from "jotai";
 
 export default function Header({ setSidebarOpen }) {
   const [profilePanelOpen, setProfilePanelOpen] = useState(false);
@@ -110,7 +111,6 @@ export default function Header({ setSidebarOpen }) {
               <div className="container__main__header__right__panel__content">
                 <Link
                   to="/dashboard/Profile"
-                  // onClick={() => setUser(null)}
                   replace={true}
                   className="container__main__header__right__panel__content__entry"
                 >

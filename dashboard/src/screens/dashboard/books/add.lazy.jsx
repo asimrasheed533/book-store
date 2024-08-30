@@ -1,9 +1,10 @@
 import { Input, Select, Textarea } from "components";
 import { Link, useNavigate } from "react-router-dom";
+
 import axios from "../../../utils/axios";
+import { categories } from "../../../utils/constants";
 import { useBackLocation } from "global";
 import { useState } from "react";
-import { categories } from "../../../utils/constants";
 
 export default function ProductAdd() {
   const [selectedImage, setSelectedImage] = useState();
@@ -99,7 +100,6 @@ export default function ProductAdd() {
                     return;
                   }
 
-                  // max file size 1mb
                   if (file.size > 1024 * 1024) {
                     alert("File size should be less than 1mb");
                     return;

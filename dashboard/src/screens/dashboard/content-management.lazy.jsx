@@ -99,15 +99,8 @@ export default function ContentManagement() {
         <ImageUploaderSingle
           label="Image"
           value={image}
-          onChange={(e) => {
-            setImage(e);
-          }}
+          onChange={(e) => setImage(e)}
         />
-        {/* <ImageUploaderMultiple
-          label="Image"
-          images={images}
-          setImages={setImages}
-        /> */}
       </div>
       <div className="container__main__content__details__buttons">
         <Link

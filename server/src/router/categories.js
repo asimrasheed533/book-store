@@ -1,10 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
-const schema = new mongoose.Schema({
-  name: String,
-  img: String,
-});
+const schema = new mongoose.Schema({ name: String, img: String });
 
 const Category = mongoose.model("Category", schema);
 const router = express.Router();
@@ -28,6 +25,7 @@ router.get("/:id", async (req, res) => {
     return res.status(500).json({ error: "Something went wrong" });
   }
 });
+
 router.post("/add", async (req, res) => {
   try {
     const category = new Category({

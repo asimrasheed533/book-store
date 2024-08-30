@@ -1,17 +1,3 @@
-// *,
-// *::after,
-// *::before {
-//   box-sizing: border-box;
-//   scroll-behavior: smooth;
-//   font-family: sans-serif;
-// }
-
-// body {
-//   margin: 0;
-//   padding: 0;
-//   font-size: 16px;
-// }
-
 .main__warper {
   width: 100%;
   height: 100vh;
@@ -20,7 +6,6 @@
   justify-content: center;
   background-color: #405a7e;
 }
-
 .main__warper__container {
   width: 100%;
   max-width: 900px;
@@ -29,9 +14,7 @@
   justify-content: center;
   padding: 2em;
   border-radius: 20px;
-  // background-color: #7395c3;
 }
-
 .main__container__left {
   display: flex;
   flex-direction: column;
@@ -43,7 +26,6 @@
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
-
 .main__container__right {
   width: 70%;
   border-top-right-radius: 20px;
@@ -55,13 +37,11 @@
   padding: 2em;
   background-color: #213c5f;
 }
-
 .main__container__left__signin__button {
   width: 100%;
   padding: 0.5em;
   border-radius: 20px;
   border: 1px solid #001d32;
-
   color: #070707;
   font-weight: 500;
   font-size: 1rem;
@@ -72,12 +52,10 @@
   justify-content: center;
   text-decoration: none;
 }
-
 .main__container__left__signin__button:hover {
   transition: 300ms ease-in-out;
   background-color: #405a7e;
 }
-
 .main__container__left__signup__button {
   width: 100%;
   font-weight: 500;
@@ -95,12 +73,10 @@
   justify-content: center;
   text-decoration: none;
 }
-
 .main__container__left__signup__button:hover {
   background-color: #405a7e;
   transition: 300ms ease-in-out;
 }
-
 .signIn__form__heading {
   font-size: 2rem;
   color: #fff;
@@ -108,21 +84,18 @@
   text-align: center;
   margin-bottom: 1em;
 }
-
 .signIn__form {
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-
 .signIn__form__entry {
   width: 100%;
   max-width: 400px;
   padding: 0.5em;
   margin: 0.5em 0;
 }
-
 .signIn__form__entry__input {
   width: 100%;
   border: none;
@@ -130,7 +103,6 @@
   border-radius: 20px;
   outline: none;
 }
-
 .signIn__form__entry__button {
   width: 100%;
   padding: 0.5em;
@@ -143,12 +115,10 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .signIn__form__entry__button:hover {
   background-color: #405a7e;
   transition: 300ms ease-in-out;
 }
-
 .signin__entry__rember {
   width: 100%;
   max-width: 370px;
@@ -157,7 +127,6 @@
   justify-content: flex-start;
   margin: 10px 0;
 }
-
 .signin__entry__rember input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
@@ -169,23 +138,19 @@
   cursor: pointer;
   margin-right: 10px;
 }
-
 .signin__entry__rember input[type="checkbox"]:checked::before {
   content: "\2713";
-  /* Unicode for checkmark */
   position: absolute;
   top: 0;
   left: 1px;
   font-size: 18px;
   color: #fdfdfd;
 }
-
 .signin__entry__rember__text {
   font-size: 14px;
   color: #fafafa;
   cursor: pointer;
 }
-
 .welcome__conatiner {
   width: 100%;
   height: 100vh;
@@ -212,23 +177,19 @@
   font-weight: 700;
   text-align: center;
 }
-
 @media (max-width: 650px) {
   .signIn__form__heading {
     font-size: 1.5rem;
-    margin-bottom: 0em;
+    margin-bottom: 0;
     margin-top: 1em;
   }
-
   .main__container__right {
     padding: 0;
   }
-
   .main__warper__container {
     flex-direction: column;
     height: 100%;
   }
-
   .main__container__left {
     width: 100%;
     border-radius: 0;
@@ -236,15 +197,12 @@
     border-top-right-radius: 20px;
     padding: 1em;
   }
-
   .main__container__left__signin__button {
     color: rgb(0, 0, 0);
   }
-
   .main__container__left__signin__button:hover {
     color: white;
   }
-
   .main__container__right {
     width: 100%;
     border-radius: 0;

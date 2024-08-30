@@ -6,6 +6,7 @@
     "start": "npx tsx index.ts",
     "generate": "prisma generate",
     "migrate": "prisma migrate dev",
+    "pull": "prisma db pull",
     "studio": "prisma studio"
   },
   "dependencies": {

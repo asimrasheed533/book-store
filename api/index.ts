@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { cors } from 'hono/cors'
 import categories from "./routes/categories";
 import orders from "./routes/orders";
 import prisma from "./lib/prisma";
@@ -10,6 +11,12 @@ async function main() {
   const app = new Hono();
 
   const port = Number(process.env.PORT) || 9000;
+
+  app.use(
+    cors({
+      origin:"*"
+    })
+  )
 
   app.get("/", (c) => c.json({ message: "Welcome to the API" }));
 

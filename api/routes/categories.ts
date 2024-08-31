@@ -6,7 +6,7 @@ const categories = new Hono();
 
 categories.get("/", async (c) => {
   try {
-    const categories = await prisma.user.findMany();
+    const categories = await prisma.category.findMany();
     return c.json(categories);
   } catch (err: any) {
     catchFun(err, c);
@@ -17,7 +17,7 @@ categories.get("/:id", async (c) => {
   try {
     const { id } = c.req.param();
 
-    const category = await prisma.user.findUnique({
+    const category = await prisma.category.findUnique({
       where: { id: id },
     });
 

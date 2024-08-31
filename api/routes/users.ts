@@ -37,7 +37,7 @@ users.post("/login", async (c) => {
 
     const user = await prisma.user.findUnique({
       where: { email: email },
-      select: { password },
+      select: { password: true },
     });
 
     if (!user) {

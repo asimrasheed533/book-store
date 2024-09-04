@@ -51,7 +51,7 @@ export default function Index() {
             products
               .filter((product) => product.type === "featured")
               ?.map((product) => (
-                <PopularProducts key={product._id} product={product} />
+                <PopularProducts key={product.id} product={product} />
               ))
           ) : (
             <div className="placeholder">
@@ -84,9 +84,9 @@ export default function Index() {
         <div className="item__container__warper">
           {products ? (
             products
-              .filter((product) => product.type === "featured")
+              .filter((product) => product.type === "latest")
               ?.map((product) => (
-                <ProductCard key={product._id} product={product} />
+                <ProductCard key={product.id} product={product} />
               ))
           ) : (
             <div className="placeholder">
@@ -120,7 +120,7 @@ function PopularProducts({ product }) {
       onClick={() => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }}
-      to={`/shop/${product._id}`}
+      to={`/shop/${product.id}`}
       state={product}
       className="popular__card__warper"
     >

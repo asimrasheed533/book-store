@@ -54,7 +54,7 @@ export default function orders() {
             <Loading dashboard />
           ) : (
             order.map((item) => (
-              <TableEntry item={item} key={item._id} getData={mutate} />
+              <TableEntry item={item} key={item.id} getData={mutate} />
             ))
           )}
         </div>
@@ -69,12 +69,12 @@ function TableEntry({ item }) {
       <div className="container__main__content__listing__table__content__list__entry">
         <TableEntryDeleteButton
           onClick={() => {
-            axios.delete(`orders/${item?._id}`).then(() => getData);
+            axios.delete(`orders/${item?.id}`).then(() => getData);
           }}
         />
       </div>
 
-      <TableEntryText>{item._id}</TableEntryText>
+      <TableEntryText>{item.id}</TableEntryText>
       <TableEntryText>{item?.email}</TableEntryText>
       <TableEntryText>{item?.firstName}</TableEntryText>
       <TableEntryText>{item?.number}</TableEntryText>

@@ -58,7 +58,11 @@ products.post("/add", async (c) => {
         author,
         img,
         stock,
-        category,
+        category:{
+          connect:{
+            id:category
+          }
+        },
         description,
         isFeatured,
         isActive,

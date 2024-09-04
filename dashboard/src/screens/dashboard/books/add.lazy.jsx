@@ -26,10 +26,10 @@ export default function ProductAdd() {
         title,
         author,
         description,
-        stock,
+        stock: Number(stock),
         category: category.value,
         img: image,
-        price,
+        price: Number(price),
       })
       .then((res) => {
         alert("Product added successfully");

@@ -85,11 +85,7 @@ export default function Books() {
             <Loading dashboard />
           ) : (
             filter(products).map((product) => (
-              <TableEntry
-                key={product._id}
-                product={product}
-                getData={mutate}
-              />
+              <TableEntry key={product.id} product={product} getData={mutate} />
             ))
           )}
         </div>
@@ -104,7 +100,7 @@ function TableEntry({ product, getData }) {
         <TableEntryEditButton state={{ ...product }} />
         <TableEntryDeleteButton
           onClick={() => {
-            axios.delete(`products/${product._id}`).then(() => {
+            axios.delete(`products/${product.id}`).then(() => {
               getData();
             });
           }}
@@ -127,7 +123,7 @@ function TableEntry({ product, getData }) {
         ]}
         onChange={(e) => {
           axios
-            .put(`books/${product._id}`, {
+            .put(`books/${product.id}`, {
               isActive: e.value,
             })
             .then(() => {
@@ -156,7 +152,7 @@ function TableEntry({ product, getData }) {
         ]}
         onChange={(e) => {
           axios
-            .put(`products/${product._id}`, {
+            .put(`products/${product.id}`, {
               type: e.value,
             })
             .then(() => {

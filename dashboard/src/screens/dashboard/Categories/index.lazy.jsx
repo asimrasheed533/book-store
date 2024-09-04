@@ -46,8 +46,8 @@ export default function categories() {
           {loading ? (
             <Loading dashboard />
           ) : (
-            category.map((item) => (
-              <TableEntry item={item} key={item._id} getData={mutate} />
+            category?.map((item) => (
+              <TableEntry item={item} key={item.id} getData={mutate} />
             ))
           )}
         </div>
@@ -61,12 +61,12 @@ function TableEntry({ item }) {
     <div className="container__main__content__listing__table__content__list">
       <div className="container__main__content__listing__table__content__list__entry">
         <TableEntryEditButton
-          to={`/dashboard/categories/edit/${item?._id}`}
+          to={`/dashboard/categories/edit/${item?.id}`}
           state={{ ...item }}
         />
         <TableEntryDeleteButton
           onClick={() => {
-            axios.delete(`categories/${item?._id}`).then(() => {
+            axios.delete(`categories/${item?.id}`).then(() => {
               getData();
             });
           }}

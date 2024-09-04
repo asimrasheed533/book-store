@@ -8,10 +8,10 @@ export default function Cart() {
   const navigate = useNavigate();
 
   const cart = useSelector((state) => state.cart.items);
-  console.log("cart", cart);
+ 
   const totalPrice = useSelector((state) => state.cart.totalPrice);
 
-  console.log("cart", cart);
+  
 
   return (
     <>

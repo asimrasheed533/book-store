@@ -76,7 +76,7 @@ export default function Header() {
             >
               About Us
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to="/ContactUs"
               className="header__nav__link"
               onClick={() => {
@@ -90,7 +90,7 @@ export default function Header() {
               }}
             >
               Contact us
-            </NavLink>
+            </NavLink> */}
           </div>
         ) : null}
 
@@ -118,9 +118,9 @@ export default function Header() {
           </svg>
         </Link>
         <div className="header__container__Login__container">
-          <Link to="/Login" className="header__container__Login">
+          {/* <Link to="/Login" className="header__container__Login">
             Login
-          </Link>
+          </Link> */}
           <Link to="/cart" className="header__container__right__cart">
             <div className="header__container__right__cart__num">
               {Number(totalQuantity)}

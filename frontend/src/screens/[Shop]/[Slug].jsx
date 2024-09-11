@@ -51,11 +51,7 @@ export default function Detail() {
             Reserving Book
           </button>
           <div className="disclaimer__title">Book Deatils</div>
-          <div className="disclaimer__detail">
-            Actual colors of the product may vary from the colors being
-            displayed on your device.olors of the product may vary from the
-            colors being displayed on your device.
-          </div>
+          <div className="disclaimer__detail">{state.description}</div>
         </div>
       </div>
     </>

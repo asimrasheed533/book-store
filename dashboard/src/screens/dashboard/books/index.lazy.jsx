@@ -25,10 +25,10 @@ export default function Books() {
   const filter = useCallback((products) => {
     return products.filter((product) => {
       return (
-        product.title.toLowerCase().includes(query.toLowerCase()) ||
-        product.price.toString().includes(query) ||
-        product.author.toLowerCase().includes(query.toLowerCase()) ||
-        product.category.toLowerCase().includes(query.toLowerCase())
+        product.title?.toLowerCase().includes(query.toLowerCase()) ||
+        product.price?.toString().includes(query) ||
+        product.author?.toLowerCase().includes(query.toLowerCase()) ||
+        product.category?.toLowerCase().includes(query.toLowerCase())
       );
     });
   }, []);

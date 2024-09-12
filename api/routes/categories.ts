@@ -53,7 +53,7 @@ categories.put("/:id", async (c) => {
     const { id } = c.req.param();
 
     const { name, img } = await c.req.json();
-console.log("name, img" ,id, name  , img)
+
     if (!name || !img) {
       return c.json({ error: "All fields are required" });
     }

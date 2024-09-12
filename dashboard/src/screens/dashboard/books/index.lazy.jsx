@@ -73,9 +73,7 @@ export default function Books() {
           <div className="container__main__content__listing__table__header__entry">
             Stock
           </div>
-          <div className="container__main__content__listing__table__header__entry">
-            Category
-          </div>
+
           <div className="container__main__content__listing__table__header__entry">
             Description
           </div>
@@ -175,9 +173,7 @@ function TableEntry({ product, getData }) {
       <TableEntryText className="container__main__content__listing__table__content__list__entry">
         {product.stock}
       </TableEntryText>
-      <TableEntryText className="container__main__content__listing__table__content__list__entry">
-        {getCategoryName(product.category)}
-      </TableEntryText>
+
       <TableEntryDescription className="container__main__content__listing__table__content__list__entry">
         {product?.description}
       </TableEntryDescription>

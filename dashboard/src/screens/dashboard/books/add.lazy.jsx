@@ -20,7 +20,6 @@ export default function ProductAdd() {
   const [image, setImage] = useState("");
 
   function handleSubmit(e) {
-    console.log("product", title, author, description, stock, category, price);
     axios
       .post("products/add", {
         title,

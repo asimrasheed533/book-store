@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../../features/cartSlice";
 export default function Detail() {
   const { state } = useLocation();
-  console.log(state);
+
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
   if (!state) {

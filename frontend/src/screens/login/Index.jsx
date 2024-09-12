@@ -26,7 +26,6 @@ export default function Index() {
 
             return;
           } else {
-            console.log("email", email, "password", password);
             axios
               .post("http://localhost:9000/api/users/login", {
                 email,

@@ -7,33 +7,26 @@ import ImageUploaderSingle from "../../../components/ImageUploaderSingle";
 import axios from "../../../utils/axios";
 import { useBackLocation } from "global";
 
-export default function ProductEdit() {
+export default function BooksEdit() {
   const { state } = useLocation();
   const navigate = useNavigate();
   const backLocation = useBackLocation();
 
   const [title, setTitle] = useState("");
 
-  const [author, setAuthor] = useState("");
-
   const [description, setDescription] = useState("");
-
-  const [time, setTime] = useState("");
 
   const [category, setCategory] = useState({});
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
   const [selectedImage, setSelectedImage] = useState();
 
-  const [stock, setStock] = useState("");
-
   useEffect(() => {
     if (state) {
       setTitle(state.title);
-      setAuthor(state.author);
+
       setDescription(state.description);
-      setTime(state.time);
-      setStock(state.stock);
+
       setPrice(state.price);
       setCategory({
         label: getCategoryName(state.category),
@@ -47,9 +40,8 @@ export default function ProductEdit() {
     console.log("submitting");
     console.log("submit data", {
       title,
-      author,
+
       description,
-      time,
       category: category.value,
       img: image,
       price,
@@ -57,9 +49,8 @@ export default function ProductEdit() {
     axios
       .put("products/" + state.id, {
         title,
-        author,
+
         description,
-        time,
         category: category.value,
         img: image,
         price,
@@ -84,13 +75,7 @@ export default function ProductEdit() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          <Input
-            type="text"
-            label="Author"
-            placeholder="Enter Author"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
-          />
+
           <Textarea
             label="Description"
             placeholder="Enter Description"
@@ -99,13 +84,6 @@ export default function ProductEdit() {
           />
         </div>
         <div className="product__form__col__panel">
-          <Input
-            type="number"
-            label="Edit Stock"
-            value={stock}
-            onChange={(e) => setStock(e.target.value)}
-            placeholder="Enter Stock"
-          />
           <Input
             type="number"
             label="Edit Price"

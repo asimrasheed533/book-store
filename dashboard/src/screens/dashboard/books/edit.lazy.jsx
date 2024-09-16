@@ -29,7 +29,7 @@ export default function BooksEdit() {
 
       setPrice(state.price);
       setCategory({
-        label: getCategoryName(state.category),
+        label: getCategoryName(state.categoryId),
         value: state.category,
       });
       setImage(state.img);

@@ -107,8 +107,8 @@ function ProductCard({ product }) {
       </div>
       <div className="item__container__name">{product.title}</div>
       <div className="item__container__author">
-        <span>Author:</span>
-        {product.author}
+        <span>Price:</span>
+        {product.price}
       </div>
     </div>
   );
@@ -131,7 +131,7 @@ function PopularProducts({ product }) {
       <div className="popular__text__content">
         <div className="popular__card__name">{product.title}</div>
         <div className="item__container__author">
-          <span>Author:</span> {product.author}
+          <span>Price:</span> {product.price}
         </div>
       </div>
     </Link>

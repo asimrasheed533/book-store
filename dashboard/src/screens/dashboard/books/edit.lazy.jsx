@@ -37,15 +37,6 @@ export default function BooksEdit() {
   }, [state]);
 
   function handleSubmit(e) {
-    console.log("submitting");
-    console.log("submit data", {
-      title,
-
-      description,
-      category: category.value,
-      img: image,
-      price,
-    });
     axios
       .put("products/" + state.id, {
         title,
@@ -53,7 +44,7 @@ export default function BooksEdit() {
         description,
         category: category.value,
         img: image,
-        price,
+        price: Number(price),
       })
       .then((res) => {
         alert("Product updated successfully");

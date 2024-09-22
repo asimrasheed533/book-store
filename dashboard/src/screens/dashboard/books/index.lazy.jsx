@@ -61,6 +61,9 @@ export default function Books() {
           <div className="container__main__content__listing__table__header__entry">
             Title
           </div>
+          <div className="container__main__content__listing__table__header__entry">
+            Author
+          </div>
 
           <div className="container__main__content__listing__table__header__entry">
             Price
@@ -134,6 +137,9 @@ function TableEntry({ product, getData }) {
       <TableEntryImage src={product?.img} />
       <TableEntryText className="container__main__content__listing__table__content__list__entry">
         {product.title}
+      </TableEntryText>
+      <TableEntryText className="container__main__content__listing__table__content__list__entry">
+        {product.author}
       </TableEntryText>
 
       <TableEntryText className="container__main__content__listing__table__content__list__entry">

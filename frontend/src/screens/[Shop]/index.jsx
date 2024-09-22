@@ -5,15 +5,13 @@ import useQuery from "../../utils/useQuery";
 
 export default function Shop() {
   const { data: products } = useQuery("products");
-
+  console.log("products", products);
   const [isActive, setIsActive] = useState(0);
 
   const categoryFilter = {
     0: null,
-    1: "66b1f929c289c556e5bce5d0",
-    2: "66b1f945c289c556e5bce5d3",
-    3: "66b480fc4dccbfb7705266bb",
-    4: "66bc5d2114e916d656f99ac1",
+    1: "cm1d5yj0s0001p5w32i9thh76",
+    2: "cm1d5y02a0000p5w32iv9ktc8",
   };
 
   const filteredProducts = products?.filter((product) => {

@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { categories, getCategoryName } from "../../../utils/constants";
 import { useEffect, useState } from "react";
 
-import ImageUploaderSingle from "../../../components/ImageUploaderSingle";
+// import ImageUploaderSingle from "../../../components/ImageUploaderSingle";
 import axios from "../../../utils/axios";
 import { useBackLocation } from "global";
 
@@ -13,7 +13,7 @@ export default function BooksEdit() {
   const backLocation = useBackLocation();
 
   const [title, setTitle] = useState("");
-
+  const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
 
   const [category, setCategory] = useState({});
@@ -24,6 +24,7 @@ export default function BooksEdit() {
   useEffect(() => {
     if (state) {
       setTitle(state.title);
+      setAuthor(state.author);
 
       setDescription(state.description);
 
@@ -40,7 +41,7 @@ export default function BooksEdit() {
     axios
       .put("products/" + state.id, {
         title,
-
+        author,
         description,
         category: category.value,
         img: image,
@@ -59,6 +60,13 @@ export default function BooksEdit() {
     <div className="product__form">
       <div className="product__form__col">
         <div className="product__form__col__panel">
+          <Input
+            type="text"
+            label="Author"
+            placeholder="Enter Book Title"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+          />
           <Input
             type="text"
             label="Title"

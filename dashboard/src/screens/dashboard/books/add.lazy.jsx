@@ -10,7 +10,7 @@ export default function BooksAdd() {
   const navigate = useNavigate();
   const backLocation = useBackLocation();
 
-  const [name, setName] = useState("");
+  const [author, setAuthor] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [stock, setStock] = useState("");
@@ -21,8 +21,8 @@ export default function BooksAdd() {
   function handleSubmit(e) {
     axios
       .post("products/add", {
-        name,
         title,
+        author,
         description,
         stock: Number(stock),
         category: category.value,
@@ -44,10 +44,10 @@ export default function BooksAdd() {
         <div className="product__form__col__panel">
           <Input
             type="text"
-            label="Name"
-            placeholder="Enter Name"
+            label="Author"
+            placeholder="Enter Author"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setAuthor(e.target.value)}
           />
           <Input
             type="text"

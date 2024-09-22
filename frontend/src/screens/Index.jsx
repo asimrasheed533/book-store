@@ -6,6 +6,7 @@ import useQuery from "../utils/useQuery";
 
 export default function Index() {
   const { data: products } = useQuery("products");
+  
 
   return (
     <>
@@ -67,10 +68,10 @@ export default function Index() {
               Special Offers
             </div>
             <div className="promo__container__content__heading">
-              Discount On Books Learn Language
+              BOOKS are magical portals to different worlds,filled with wonder,adventure,and khowledge.
             </div>
             <div className="promo__container__content__sub__heading">
-              Last call for up to <span>32%</span> off!
+              Last call for up to <span></span> off!
             </div>
             <div className="promo__container__content__btn">Buy Now</div>
           </div>

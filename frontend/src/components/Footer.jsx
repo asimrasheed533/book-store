@@ -42,7 +42,7 @@ export default function Footer() {
             }}
             className="footer__content__col__link"
           >
-            About
+            Books
           </Link>
 
           <Link
@@ -52,7 +52,7 @@ export default function Footer() {
             }}
             className="footer__content__col__link"
           >
-            Services
+            About Us
           </Link>
 
           <Link
@@ -62,7 +62,7 @@ export default function Footer() {
             }}
             className="footer__content__col__link"
           >
-            Quotation
+            Contact Us
           </Link>
         </div>
 

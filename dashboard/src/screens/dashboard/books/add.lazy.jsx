@@ -46,7 +46,7 @@ export default function BooksAdd() {
             type="text"
             label="Author"
             placeholder="Enter Author"
-            value={name}
+            value={author}
             onChange={(e) => setAuthor(e.target.value)}
           />
           <Input

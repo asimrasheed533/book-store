@@ -6,7 +6,7 @@ import useQuery from "../utils/useQuery";
 
 export default function Index() {
   const { data: products } = useQuery("products");
-  
+  const { data: categories } = useQuery("/categories");
 
   return (
     <>
@@ -45,6 +45,25 @@ export default function Index() {
           </div>
         </div>
       </div>
+      <div className="categories__container__heading">Choose Categories</div>
+      <div className="categories__container">
+        {categories?.map((category) => (
+          <Link
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            to={`/${category.id}`}
+            state={{ id: category.id }}
+            className="categories__item"
+            key={category.id}
+          >
+            <div className="categories__item__img">
+              <img src={category.img} alt="coffee" />
+            </div>
+            <div className="categories__item__name">{category.name}</div>
+          </Link>
+        ))}
+      </div>
       <div className="popular__container">
         <div className="popular__container__heading">Popular Products</div>
         <div className="popular__container__cards">
@@ -68,7 +87,8 @@ export default function Index() {
               Special Offers
             </div>
             <div className="promo__container__content__heading">
-              BOOKS are magical portals to different worlds,filled with wonder,adventure,and khowledge.
+              BOOKS are magical portals to different worlds,filled with
+              wonder,adventure,and khowledge.
             </div>
             <div className="promo__container__content__sub__heading">
               Last call for up to <span></span> off!

@@ -1,33 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 import useQuery from "../../utils/useQuery";
-
+import { useLocation } from "react-router-dom";
 export default function Shop() {
   const { data: products } = useQuery("products");
-  console.log("products", products);
-  const [isActive, setIsActive] = useState(0);
-
-  const categoryFilter = {
-    0: null,
-    1: "cm1d5yj0s0001p5w32i9thh76",
-    2: "cm1d5y02a0000p5w32iv9ktc8",
-  };
-
-  const filteredProducts = products?.filter((product) => {
-    if (categoryFilter[isActive]) {
-      return product.category === categoryFilter[isActive];
+  const location = useLocation();
+  const { id } = location.state || {}; // Get the category id passed through state
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  useEffect(() => {
+    // Filter products based on the category id
+    if (id) {
+      const filtered = products?.filter((product) => product.categoryId === id);
+      setFilteredProducts(filtered);
     }
-    return true;
-  });
-
+  }, [id, products]);
   return (
     <>
       <div className="shop__products__filter__warper">
         <div className="filter__warper__heading">
           Buy Books Online With The Best Price!
         </div>
-        <div className="filter__item__entry__warper">
+        {/* <div className="filter__item__entry__warper">
           <div
             className={`filter__item__entry ${
               isActive === 0 && "filter__item__entry__active"
@@ -68,7 +62,7 @@ export default function Shop() {
           >
             Computer
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="shop__products__container">
         <div className="shop__products__items">

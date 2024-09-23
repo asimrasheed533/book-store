@@ -130,6 +130,17 @@ body {
   font-weight: 600;
   text-decoration: none;
 }
+.categories__container__heading {
+  width: 100%;
+  font-size: 22px;
+  font-weight: 700;
+  max-width: 1366px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3em;
+}
 
 .sale__banner {
   width: 100%;

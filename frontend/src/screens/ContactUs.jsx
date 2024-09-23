@@ -1,6 +1,45 @@
-import React from "react";
-
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
 export default function ContactUs() {
+  const form = useRef();
+
+  // Handle form field changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // Validate form fields
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.name) newErrors.name = "Name is required.";
+    if (!formData.email) newErrors.email = "Email is required.";
+    else if (!/\S+@\S+\.\S+/.test(formData.email))
+      newErrors.email = "Email is invalid.";
+    if (!formData.message) newErrors.message = "Message is required.";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0; // Return true if no errors
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_0zupe7m", "template_qy3y3pq", form.current, {
+        publicKey: "Tn2ZkiY0Ff6w-K_M8",
+      })
+      .then(
+        () => {
+          toast.success("Message sent successfully!"); // Show success toast
+        },
+        (error) => {
+          toast.error("Failed to send message. Please try again."); // Show error toast
+          console.log("FAILED...", error.text);
+        }
+      );
+  };
   return (
     <div className="contact">
       <h1 className="contact__title">Contact Us</h1>
@@ -11,16 +50,29 @@ export default function ContactUs() {
         <p className="contact__item">Address: 123 Book Street, Booktown</p>
       </div>
 
-      <form className="contact__form">
+      <form ref={form} onSubmit={sendEmail} className="contact__form">
         <label htmlFor="name">Name:</label>
-        <input type="text" id="name" className="contact__input" required />
+        <input
+          type="text"
+          name="name"
+          id="name"
+          className="contact__input"
+          required
+        />
 
         <label htmlFor="email">Email:</label>
-        <input type="email" id="email" className="contact__input" required />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          className="contact__input"
+          required
+        />
 
         <label htmlFor="message">Message:</label>
         <textarea
           id="message"
+          name="message"
           className="contact__textarea"
           required
         ></textarea>

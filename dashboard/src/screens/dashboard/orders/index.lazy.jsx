@@ -11,8 +11,8 @@ export default function orders() {
     isLoading: loading,
     mutate,
   } = useQuery("orders");
-
   const order = response.data || [];
+  console.log("response", response);
 
   return (
     <div className="container__main__content__listing">
@@ -53,7 +53,7 @@ export default function orders() {
           {loading ? (
             <Loading dashboard />
           ) : (
-            order.map((item) => (
+            response.map((item) => (
               <TableEntry item={item} key={item.id} getData={mutate} />
             ))
           )}

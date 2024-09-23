@@ -47,7 +47,7 @@ export default function Header() {
               Home
             </NavLink>
             <NavLink
-              to="/shop"
+              to="/contactUs"
               className="header__nav__link"
               onClick={() => {
                 if (window.innerWidth <= 800) {
@@ -59,7 +59,7 @@ export default function Header() {
                 });
               }}
             >
-              Books
+              Contact US
             </NavLink>
             <NavLink
               to="/aboutus"

@@ -46,6 +46,9 @@ export default function orders() {
             Student name
           </div>
           <div className="container__main__content__listing__table__header__entry">
+            Book Name
+          </div>
+          <div className="container__main__content__listing__table__header__entry">
             Phone No.
           </div>
         </div>
@@ -66,17 +69,26 @@ export default function orders() {
 function TableEntry({ item }) {
   return (
     <div className="container__main__content__listing__table__content__list">
-      <div className="container__main__content__listing__table__content__list__entry">
+      <div
+        className="container__main__content__listing__table__content__list__entry"
+        onClick={() => {
+          axios.delete(`orders/${item?.id}`).then(() => getData);
+        }}
+      >
+        deliver
+      </div>
+      {/* <div className="container__main__content__listing__table__content__list__entry">
         <TableEntryDeleteButton
           onClick={() => {
             axios.delete(`orders/${item?.id}`).then(() => getData);
           }}
         />
-      </div>
+      </div> */}
 
       <TableEntryText>{item.id}</TableEntryText>
       <TableEntryText>{item?.email}</TableEntryText>
       <TableEntryText>{item?.firstName}</TableEntryText>
+      <TableEntryText>{item?.lastName}</TableEntryText>
       <TableEntryText>{item?.number}</TableEntryText>
     </div>
   );

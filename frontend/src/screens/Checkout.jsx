@@ -106,7 +106,7 @@ export default function Checkout() {
                 )}
               </div>
               <div className="checkout__input__warper__name__entry">
-                <div className="checkout__input__label">Last Name</div>
+                <div className="checkout__input__label">Book Name</div>
                 <input
                   className="checkout__input__entry__name"
                   type="text"

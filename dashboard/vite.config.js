@@ -6,6 +6,7 @@ import react from "@vitejs/plugin-react";
 import viteCompression from "vite-plugin-compression";
 import viteImagemin from "vite-plugin-imagemin";
 
+
 // https://vitejs.dev/config/
 export default defineConfig({
   resolve: {

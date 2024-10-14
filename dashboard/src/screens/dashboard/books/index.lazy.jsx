@@ -23,7 +23,7 @@ export default function Books() {
   const [query, setQuery] = useState("");
 
   const filter = useCallback((products) => {
-    return products.filter((product) => {
+    return products?.filter((product) => {
       return (
         product.title?.toLowerCase().includes(query.toLowerCase()) ||
         product.price?.toString().includes(query) ||
@@ -81,7 +81,7 @@ export default function Books() {
           {loading ? (
             <Loading dashboard />
           ) : (
-            filter(products).map((product) => (
+            filter(products)?.map((product) => (
               <TableEntry key={product.id} product={product} getData={mutate} />
             ))
           )}
